@@ -13,6 +13,14 @@
 </head>
 <body>
 
+<div class="loader" id="loader" aria-hidden="true">
+  <svg class="icon loader-dna"><use href="#icon-dna"/></svg>
+  <p>Loading Portfolio…</p>
+</div>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
 <svg style="display:none" aria-hidden="true">
   <symbol id="icon-flask" viewBox="0 0 24 24"><path d="M9 2h6M10 2v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.5L14 8V2"/><path d="M7.5 14.5h9"/></symbol>
   <symbol id="icon-microscope" viewBox="0 0 24 24"><path d="M6 20h9"/><path d="M9 20v-3.5"/><path d="M9 16.5a4 4 0 1 1 4-4"/><path d="M12.5 9L17 4.5"/><path d="M15.5 3l3 3"/><path d="M5 20h1"/></symbol>
@@ -89,22 +97,31 @@
       <svg class="icon hero-flyer flyer-mouse" aria-hidden="true"><use href="#icon-mouse"/></svg>
     </div>
     <div class="container hero-inner">
-      <p class="eyebrow">Research Assistant · Stanford School of Medicine, Radiology</p>
-      <h1 class="name-wrap"><span class="shimmer-text">Lokprakash Aravindan</span><svg class="icon hero-icon name-icon"><use href="#icon-mouse"/></svg></h1>
-      <p class="hero-lede">
-        Translational research in molecular imaging, cell biology, and cancer immunotherapy —
-        bridging bench-level experimental design with in vivo discovery.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact"><svg class="icon"><use href="#icon-send"/></svg> Get in touch</a>
-        <a class="btn btn-outline" href="assets/Lokprakash_Aravindan_CV.pdf" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-download"/></svg> Download CV</a>
+      <div class="hero-tilt" id="heroTilt">
+        <p class="eyebrow">Research Assistant · Stanford School of Medicine, Radiology</p>
+        <p class="hero-tagline">Molecular Imaging <span>&amp;</span> Cancer Biology</p>
+        <h1 class="name-wrap" id="heroName"><span class="shimmer-text">Lokprakash Aravindan</span><svg class="icon hero-icon name-icon"><use href="#icon-mouse"/></svg></h1>
+        <p class="hero-lede">
+          Translational research in molecular imaging, cell biology, and cancer immunotherapy —
+          bridging bench-level experimental design with in vivo discovery.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary magnetic" href="#contact"><svg class="icon"><use href="#icon-send"/></svg> Get in touch</a>
+          <a class="btn btn-outline magnetic" href="assets/Lokprakash_Aravindan_CV.pdf" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-download"/></svg> Download CV</a>
+        </div>
+        <ul class="hero-meta">
+          <li><svg class="icon"><use href="#icon-pin"/></svg> Palo Alto, CA</li>
+          <li><a href="mailto:lokpraka@stanford.edu"><svg class="icon"><use href="#icon-mail"/></svg> lokpraka@stanford.edu</a></li>
+          <li><a href="https://www.linkedin.com/in/lokprakash-aravindan/" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-external"/></svg> LinkedIn</a></li>
+          <li><a href="https://orcid.org/0009-0005-4551-0682" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-external"/></svg> ORCID</a></li>
+        </ul>
       </div>
-      <ul class="hero-meta">
-        <li><svg class="icon"><use href="#icon-pin"/></svg> Palo Alto, CA</li>
-        <li><a href="mailto:lokpraka@stanford.edu"><svg class="icon"><use href="#icon-mail"/></svg> lokpraka@stanford.edu</a></li>
-        <li><a href="https://www.linkedin.com/in/lokprakash-aravindan/" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-external"/></svg> LinkedIn</a></li>
-        <li><a href="https://orcid.org/0009-0005-4551-0682" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-external"/></svg> ORCID</a></li>
-      </ul>
+      <div class="hero-stats glass">
+        <div class="stat"><span class="counter" data-count="3" data-suffix="+">0</span><small>Years Research</small></div>
+        <div class="stat"><span class="counter" data-count="7" data-suffix="">0</span><small>Research Projects</small></div>
+        <div class="stat"><span class="counter" data-count="30" data-suffix="+">0</span><small>Techniques &amp; Tools</small></div>
+        <div class="stat"><span class="counter" data-count="1" data-suffix="">0</span><small>Publication</small></div>
+      </div>
     </div>
   </section>
 
@@ -187,9 +204,10 @@
   <section id="projects" class="section">
     <div class="container">
       <h2 class="section-title reveal"><span class="tag tag-purple"><svg class="icon"><use href="#icon-flask"/></svg>03</span> Research Projects</h2>
-      <div class="rtimeline reveal-group">
+      <div class="rtimeline">
+        <div class="rtimeline-line" id="rtimelineLine" aria-hidden="true"></div>
 
-        <article class="rtimeline-item reveal-item">
+        <article class="rtimeline-item">
           <span class="rtimeline-node ci-cardinal"><svg class="icon"><use href="#icon-cell"/></svg></span>
           <div class="rtimeline-content">
             <p class="card-date">Nov 2025 · Stanford School of Medicine — Radiology</p>
@@ -202,7 +220,7 @@
           </div>
         </article>
 
-        <article class="rtimeline-item reveal-item">
+        <article class="rtimeline-item">
           <span class="rtimeline-node ci-purple"><svg class="icon"><use href="#icon-dna"/></svg></span>
           <div class="rtimeline-content">
             <p class="card-date">Feb 2025 · Stanford School of Medicine — Radiology</p>
@@ -214,7 +232,7 @@
           </div>
         </article>
 
-        <article class="rtimeline-item reveal-item">
+        <article class="rtimeline-item">
           <span class="rtimeline-node ci-teal"><svg class="icon"><use href="#icon-mouse"/></svg></span>
           <div class="rtimeline-content">
             <p class="card-date">Jun 2025 · Stanford School of Medicine — Radiology</p>
@@ -227,7 +245,7 @@
           </div>
         </article>
 
-        <article class="rtimeline-item reveal-item">
+        <article class="rtimeline-item">
           <span class="rtimeline-node ci-gold"><svg class="icon"><use href="#icon-molecule"/></svg></span>
           <div class="rtimeline-content">
             <p class="card-date">Aug 2022 – Jan 2025 · UB, Dr. Natesh Parashurama's STEMMIL</p>
@@ -239,7 +257,7 @@
           </div>
         </article>
 
-        <article class="rtimeline-item reveal-item">
+        <article class="rtimeline-item">
           <span class="rtimeline-node ci-cardinal"><svg class="icon"><use href="#icon-fish"/></svg></span>
           <div class="rtimeline-content">
             <p class="card-date">Dec 2021 – May 2022 · Dynamic Megaceutics</p>
@@ -250,7 +268,7 @@
           </div>
         </article>
 
-        <article class="rtimeline-item reveal-item">
+        <article class="rtimeline-item">
           <span class="rtimeline-node ci-teal"><svg class="icon"><use href="#icon-beaker"/></svg></span>
           <div class="rtimeline-content">
             <p class="card-date">Aug 2021 – Oct 2021 · Geomarine Biotechnologies</p>
@@ -261,7 +279,7 @@
           </div>
         </article>
 
-        <article class="rtimeline-item reveal-item">
+        <article class="rtimeline-item">
           <span class="rtimeline-node ci-purple"><svg class="icon"><use href="#icon-flask"/></svg></span>
           <div class="rtimeline-content">
             <p class="card-date">Jul 2021 – Sep 2021 · Avigen Biotech</p>
@@ -398,6 +416,9 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="assets/js/script.js"></script>
 </body>
 </html>
