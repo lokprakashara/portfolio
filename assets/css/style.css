@@ -13,9 +13,38 @@
   --muted: #56607a;
   --glass-bg: rgba(255, 255, 255, 0.55);
   --glass-border: rgba(255, 255, 255, 0.6);
+  --btn-strong: #0f2a52; /* button surface color — kept separate from
+    --navy since --navy flips to a light color in dark mode (it doubles
+    as heading-text color) but buttons need a strong surface either way */
+  --section-bg: rgba(255, 255, 255, 0.5);
+  --section-alt-bg: rgba(238, 243, 250, 0.56);
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --max: 960px;
+}
+
+/* Dark theme — opt-in only via [data-theme="dark"] on <html>, set by the
+   toggle (assets/js/script.js) and applied synchronously before first
+   paint (inline script in <head>) to avoid a flash of the wrong theme.
+   Light is always the default. */
+:root[data-theme="dark"] {
+  --navy: #eef2fb;
+  --navy-soft: #cddaf7;
+  --ink: #e3e8f5;
+  --paper: #0a0f1e;
+  --paper-alt: #101830;
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #5b8fff;
+  --accent-soft: #8fb4ff;
+  --teal: #2dd4d4;
+  --purple: #9b9dfb;
+  --gold: #e6b155;
+  --muted: #9aa7c7;
+  --glass-bg: rgba(24, 32, 56, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --btn-strong: #3d74e6;
+  --section-bg: rgba(10, 15, 30, 0.62);
+  --section-alt-bg: rgba(16, 24, 48, 0.68);
 }
 
 /* Icon system */
@@ -45,6 +74,7 @@ html.no-lenis { scroll-behavior: smooth; }
   -webkit-backdrop-filter: blur(16px) saturate(160%);
   border: 1px solid var(--glass-border);
   box-shadow: 0 8px 32px rgba(15, 42, 82, 0.08);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .glass { background: rgba(255, 255, 255, 0.92); }
@@ -91,6 +121,9 @@ html.no-lenis { scroll-behavior: smooth; }
   will-change: transform;
 }
 
+html { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
+
 body {
   margin: 0;
   font-family: var(--sans);
@@ -98,6 +131,7 @@ body {
   background: var(--paper);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body::before {
@@ -106,6 +140,15 @@ body::before {
   inset: 0;
   z-index: -4;
   background: url("../img/bg-science.svg") center center / cover no-repeat;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* The illustration's gradient/linework is drawn for a light background.
+   Inverting flips it to a dark base while keeping the artwork legible;
+   the hue-rotate corrects the color shift inversion introduces. */
+[data-theme="dark"] body::before {
+  filter: invert(1) hue-rotate(180deg) brightness(0.82) saturate(1.3);
+  opacity: 0.9;
 }
 
 /* Page-wide colorful science background */
@@ -227,6 +270,7 @@ a:hover { text-decoration: underline; }
   z-index: 50;
   background: var(--paper);
   border-bottom: 1px solid var(--line);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .header-inner {
@@ -283,6 +327,30 @@ a:hover { text-decoration: underline; }
 }
 .nav a:hover { color: var(--accent); text-decoration: none; }
 .nav a:hover::after { right: 0; }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--navy);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.theme-toggle:hover {
+  background: rgba(47, 111, 237, 0.08);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.theme-toggle .icon { width: 18px; height: 18px; }
+.theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: inline-block; }
 
 .nav-toggle {
   display: none;
@@ -584,20 +652,20 @@ a:hover { text-decoration: underline; }
 .btn:hover::before { left: 130%; }
 
 .btn-primary {
-  background: var(--navy);
+  background: var(--btn-strong);
   color: #fff;
 }
 .btn-primary:hover {
-  background: var(--navy-soft);
+  filter: brightness(1.12);
   box-shadow: 0 8px 20px rgba(20, 33, 61, 0.25);
 }
 
 .btn-outline {
-  border-color: var(--navy);
-  color: var(--navy);
+  border-color: var(--btn-strong);
+  color: var(--btn-strong);
 }
 .btn-outline:hover {
-  background: var(--navy);
+  background: var(--btn-strong);
   color: #fff;
   box-shadow: 0 8px 20px rgba(20, 33, 61, 0.18);
 }
@@ -649,8 +717,8 @@ a:hover { text-decoration: underline; }
 
 .btn.magnetic { will-change: transform; }
 .btn.magnetic:hover { transform: none; box-shadow: none; }
-.btn-primary.magnetic:hover { background: var(--navy-soft); box-shadow: 0 10px 26px rgba(20, 33, 61, 0.25); }
-.btn-outline.magnetic:hover { background: var(--navy); color: #fff; box-shadow: 0 10px 26px rgba(20, 33, 61, 0.18); }
+.btn-primary.magnetic:hover { filter: brightness(1.12); box-shadow: 0 10px 26px rgba(20, 33, 61, 0.25); }
+.btn-outline.magnetic:hover { background: var(--btn-strong); color: #fff; box-shadow: 0 10px 26px rgba(20, 33, 61, 0.18); }
 
 .hero-stats {
   display: grid;
@@ -716,12 +784,12 @@ a:hover { text-decoration: underline; }
 .section {
   position: relative;
   padding: 72px 0;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--section-bg);
   overflow: hidden;
   isolation: isolate;
 }
 .section.alt {
-  background: rgba(238, 243, 250, 0.56);
+  background: var(--section-alt-bg);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -820,7 +888,7 @@ a:hover { text-decoration: underline; }
   -webkit-backdrop-filter: blur(14px) saturate(160%);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .timeline-item { background: rgba(255, 255, 255, 0.94); }
@@ -958,7 +1026,7 @@ a:hover { text-decoration: underline; }
   /* transform is intentionally left out — GSAP drives it directly via
      quickTo for the 3D tilt, and a CSS transition on the same property
      would re-ease every JS update, making the hover feel laggy/stuttery. */
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.3s ease;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .rtimeline-content { background: rgba(255, 255, 255, 0.94); }
@@ -1094,7 +1162,7 @@ a:hover { text-decoration: underline; }
   border-left: 4px solid var(--accent);
   border-radius: 6px;
   padding: 18px 22px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.3s ease;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .pub-list li { background: rgba(255, 255, 255, 0.94); }
@@ -1161,7 +1229,7 @@ a.pub-title:hover {
   overflow: hidden;
   cursor: default;
   /* transform is intentionally left out — see .rtimeline-content above. */
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .skill-group { background: rgba(255, 255, 255, 0.94); }
@@ -1221,7 +1289,7 @@ a.pub-title:hover {
   border: 1px solid var(--glass-border);
   border-radius: 10px;
   padding: 22px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.3s ease;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .edu-card { background: rgba(255, 255, 255, 0.94); }
@@ -1263,7 +1331,7 @@ a.pub-title:hover {
   border-radius: 6px;
   padding: 12px 16px;
   font-size: 0.88rem;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.3s ease;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .cert-item { background: rgba(255, 255, 255, 0.94); }
@@ -1296,7 +1364,7 @@ a.pub-title:hover {
   background: var(--glass-bg);
   backdrop-filter: blur(14px) saturate(160%);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
-  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .contact-item { background: rgba(255, 255, 255, 0.94); }

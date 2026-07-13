@@ -1,5 +1,34 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
+/* ---------- Theme toggle (light by default) ---------- */
+(() => {
+  const toggle = document.getElementById("themeToggle");
+  if (!toggle) return;
+  const root = document.documentElement;
+
+  const syncLabel = () => {
+    const isDark = root.getAttribute("data-theme") === "dark";
+    toggle.setAttribute("aria-pressed", String(isDark));
+    toggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+  };
+  syncLabel(); // the inline <head> script already applied a saved theme, if any
+
+  toggle.addEventListener("click", () => {
+    const isDark = root.getAttribute("data-theme") === "dark";
+    if (isDark) {
+      root.removeAttribute("data-theme");
+    } else {
+      root.setAttribute("data-theme", "dark");
+    }
+    try {
+      localStorage.setItem("theme", isDark ? "light" : "dark");
+    } catch (err) {
+      /* localStorage unavailable — theme just won't persist across visits */
+    }
+    syncLabel();
+  });
+})();
+
 const navToggle = document.getElementById("navToggle");
 const nav = document.getElementById("nav");
 
