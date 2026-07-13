@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eaf1fd"/>
+      <stop offset="45%" stop-color="#f5f8fd"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="blueStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2f6fed"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="1000" fill="url(#bgGrad)"/>
+
+  <!-- Atom orbit rings, top-left -->
+  <g transform="translate(190,190)" opacity="0.5" fill="none" stroke="#6366f1" stroke-width="2">
+    <circle r="4" fill="#2f6fed" stroke="none"/>
+    <ellipse rx="150" ry="60" transform="rotate(0)"/>
+    <ellipse rx="150" ry="60" transform="rotate(60)"/>
+    <ellipse rx="150" ry="60" transform="rotate(120)"/>
+    <circle cx="150" cy="0" r="5" fill="#2f6fed" stroke="none"/>
+    <circle cx="-75" cy="130" r="5" fill="#0891b2" stroke="none"/>
+    <circle cx="-75" cy="-130" r="5" fill="#6366f1" stroke="none"/>
+  </g>
+
+  <!-- DNA double helix, right side -->
+  <g transform="translate(1330,60)" opacity="0.45" stroke-linecap="round">
+    <path d="M0,0 C60,60 -60,140 0,200 C60,260 -60,340 0,400 C60,460 -60,540 0,600 C60,660 -60,740 0,800 C60,860 -60,900 0,940"
+          fill="none" stroke="url(#blueStroke)" stroke-width="4"/>
+    <path d="M90,0 C30,60 150,140 90,200 C30,260 150,340 90,400 C30,460 150,540 90,600 C30,660 150,740 90,800 C30,860 150,900 90,940"
+          fill="none" stroke="#0891b2" stroke-width="4"/>
+    <g stroke="#93a5c9" stroke-width="2">
+      <line x1="6" y1="20" x2="82" y2="20"/>
+      <line x1="24" y1="80" x2="64" y2="80"/>
+      <line x1="6" y1="180" x2="82" y2="180"/>
+      <line x1="24" y1="240" x2="64" y2="240"/>
+      <line x1="6" y1="340" x2="82" y2="340"/>
+      <line x1="24" y1="400" x2="64" y2="400"/>
+      <line x1="6" y1="500" x2="82" y2="500"/>
+      <line x1="24" y1="560" x2="64" y2="560"/>
+      <line x1="6" y1="660" x2="82" y2="660"/>
+      <line x1="24" y1="720" x2="64" y2="720"/>
+      <line x1="6" y1="820" x2="82" y2="820"/>
+      <line x1="24" y1="880" x2="64" y2="880"/>
+    </g>
+  </g>
+
+  <!-- Hexagon molecule cluster, bottom-left -->
+  <g transform="translate(230,830)" opacity="0.5" fill="none" stroke="#0891b2" stroke-width="2.5" stroke-linejoin="round">
+    <polygon points="0,-60 52,-30 52,30 0,60 -52,30 -52,-30"/>
+    <polygon points="104,-30 156,0 156,60 104,90 52,60 52,0" stroke="#2f6fed"/>
+    <polygon points="0,60 52,90 52,150 0,180 -52,150 -52,90" stroke="#6366f1"/>
+    <circle cx="0" cy="-60" r="5" fill="#2f6fed" stroke="none"/>
+    <circle cx="52" cy="-30" r="5" fill="#0891b2" stroke="none"/>
+    <circle cx="52" cy="30" r="5" fill="#6366f1" stroke="none"/>
+    <circle cx="0" cy="60" r="5" fill="#2f6fed" stroke="none"/>
+    <circle cx="-52" cy="30" r="5" fill="#0891b2" stroke="none"/>
+    <circle cx="-52" cy="-30" r="5" fill="#6366f1" stroke="none"/>
+    <circle cx="156" cy="0" r="5" fill="#2f6fed" stroke="none"/>
+    <circle cx="156" cy="60" r="5" fill="#0891b2" stroke="none"/>
+    <circle cx="104" cy="90" r="5" fill="#6366f1" stroke="none"/>
+    <circle cx="52" cy="150" r="5" fill="#2f6fed" stroke="none"/>
+    <circle cx="0" cy="180" r="5" fill="#0891b2" stroke="none"/>
+    <circle cx="-52" cy="150" r="5" fill="#6366f1" stroke="none"/>
+  </g>
+
+  <!-- Flask, bottom-right -->
+  <g transform="translate(1300,760)" opacity="0.5" fill="none" stroke="#c08a1e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60,10 L140,10 M75,10 L75,90 L15,210 A20,20 0 0 0 33,240 L167,240 A20,20 0 0 0 185,210 L125,90 L125,10"/>
+    <path d="M45,180 L155,180"/>
+    <circle cx="70" cy="150" r="6" fill="#c08a1e" stroke="none" opacity="0.6"/>
+    <circle cx="110" cy="200" r="9" fill="#c08a1e" stroke="none" opacity="0.4"/>
+    <circle cx="95" cy="160" r="4" fill="#c08a1e" stroke="none" opacity="0.6"/>
+  </g>
+
+  <!-- Scattered bubbles / atoms for texture -->
+  <g fill="#2f6fed">
+    <circle cx="520" cy="120" r="4" opacity="0.35"/>
+    <circle cx="640" cy="260" r="6" opacity="0.25"/>
+    <circle cx="420" cy="380" r="3" opacity="0.3"/>
+    <circle cx="760" cy="140" r="5" opacity="0.3"/>
+    <circle cx="900" cy="330" r="4" opacity="0.25"/>
+    <circle cx="980" cy="620" r="6" opacity="0.3"/>
+    <circle cx="700" cy="700" r="4" opacity="0.28"/>
+    <circle cx="560" cy="560" r="3" opacity="0.3"/>
+    <circle cx="1120" cy="470" r="5" opacity="0.25"/>
+    <circle cx="1180" cy="800" r="4" opacity="0.3"/>
+    <circle cx="330" cy="620" r="4" opacity="0.28"/>
+    <circle cx="850" cy="900" r="5" opacity="0.25"/>
+  </g>
+
+  <!-- Faint connecting network across the canvas -->
+  <g stroke="#6366f1" stroke-width="1.4" opacity="0.18">
+    <line x1="520" y1="120" x2="640" y2="260"/>
+    <line x1="640" y1="260" x2="760" y2="140"/>
+    <line x1="760" y1="140" x2="900" y2="330"/>
+    <line x1="900" y1="330" x2="1120" y2="470"/>
+    <line x1="420" y1="380" x2="560" y2="560"/>
+    <line x1="560" y1="560" x2="700" y2="700"/>
+    <line x1="700" y1="700" x2="980" y2="620"/>
+    <line x1="980" y1="620" x2="1180" y2="800"/>
+    <line x1="330" y1="620" x2="420" y2="380"/>
+    <line x1="700" y1="700" x2="850" y2="900"/>
+  </g>
+</svg>

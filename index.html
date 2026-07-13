@@ -34,6 +34,8 @@
   <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></symbol>
   <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></symbol>
   <symbol id="icon-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></symbol>
+  <symbol id="icon-mouse" viewBox="0 0 24 24"><ellipse cx="10" cy="13" rx="6" ry="5"/><circle cx="6.5" cy="8" r="2"/><circle cx="11" cy="7.3" r="1.8"/><circle cx="8" cy="12" r="0.8" fill="currentColor" stroke="none"/><path d="M16 15c2.5 0 5 1 6 3"/></symbol>
+  <symbol id="icon-fish" viewBox="0 0 24 24"><path d="M3 12c3-4 8-6 12-6c3 0 5 2 6 6c-1 4-3 6-6 6c-4 0-9-2-12-6z"/><path d="M21 12l3-3v6l-3-3z"/><circle cx="8" cy="11" r="0.8" fill="currentColor" stroke="none"/><path d="M9 9c1-1 2-1 3-0.5"/></symbol>
 </svg>
 
 <a class="skip-link" href="#main">Skip to content</a>
@@ -81,12 +83,14 @@
       <svg class="icon hero-icon hi-3"><use href="#icon-microscope"/></svg>
       <svg class="icon hero-icon hi-4"><use href="#icon-flask"/></svg>
       <svg class="icon hero-icon hi-5"><use href="#icon-cell"/></svg>
-      <svg class="icon hero-icon hi-6"><use href="#icon-pipette"/></svg>
+      <svg class="icon hero-icon hi-6"><use href="#icon-mouse"/></svg>
       <svg class="icon hero-icon hi-7"><use href="#icon-molecule"/></svg>
+      <svg class="icon hero-flyer flyer-fish" aria-hidden="true"><use href="#icon-fish"/></svg>
+      <svg class="icon hero-flyer flyer-mouse" aria-hidden="true"><use href="#icon-mouse"/></svg>
     </div>
     <div class="container hero-inner">
       <p class="eyebrow">Research Assistant · Stanford School of Medicine, Radiology</p>
-      <h1><span class="shimmer-text">Lokprakash Aravindan</span></h1>
+      <h1 class="name-wrap"><span class="shimmer-text">Lokprakash Aravindan</span><svg class="icon hero-icon name-icon"><use href="#icon-mouse"/></svg></h1>
       <p class="hero-lede">
         Translational research in molecular imaging, cell biology, and cancer immunotherapy —
         bridging bench-level experimental design with in vivo discovery.
@@ -98,8 +102,8 @@
       <ul class="hero-meta">
         <li><svg class="icon"><use href="#icon-pin"/></svg> Palo Alto, CA</li>
         <li><a href="mailto:lokpraka@stanford.edu"><svg class="icon"><use href="#icon-mail"/></svg> lokpraka@stanford.edu</a></li>
-        <li><a href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-external"/></svg> LinkedIn</a></li>
-        <li><a href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-external"/></svg> ORCID</a></li>
+        <li><a href="https://www.linkedin.com/in/lokprakash-aravindan/" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-external"/></svg> LinkedIn</a></li>
+        <li><a href="https://orcid.org/0009-0005-4551-0682" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-external"/></svg> ORCID</a></li>
       </ul>
     </div>
   </section>
@@ -127,7 +131,7 @@
           <div class="timeline-date">Feb 2025 – Present</div>
           <div class="timeline-content">
             <h3>Research Assistant</h3>
-            <p class="timeline-org">MIPS Lab · Stanford University, CA</p>
+            <p class="timeline-org"><span class="org-badge stanford" title="Stanford University">S</span> MIPS Lab · Stanford University, CA</p>
             <ul>
               <li>Investigated estrogen receptor activity and interactions to identify therapeutic strategies for triple-negative breast cancer.</li>
               <li>Developed mouse models to track B7-H3 activity in renal cancer, revealing its role in suppressing T cell tumor attack and advancing immunotherapy strategies.</li>
@@ -143,7 +147,7 @@
           <div class="timeline-date">Aug 2022 – Jan 2025</div>
           <div class="timeline-content">
             <h3>Graduate Research Assistant</h3>
-            <p class="timeline-org">STEMMIL · University at Buffalo, NY</p>
+            <p class="timeline-org"><span class="org-badge ub" title="University at Buffalo">UB</span> STEMMIL · University at Buffalo, NY</p>
             <ul>
               <li>Maintained and cultured mammalian and stem cells, incorporating siRNA gene knockdown for qRT-PCR, Western blot, gel electrophoresis, and immunofluorescence assays.</li>
               <li>Optimized lab protocols, increasing overall productivity by 70% with minimal available resources.</li>
@@ -157,7 +161,7 @@
           <div class="timeline-date">May 2024 – Jan 2025</div>
           <div class="timeline-content">
             <h3>Graduate Student Assistant</h3>
-            <p class="timeline-org">Campus Living · University at Buffalo, NY</p>
+            <p class="timeline-org"><span class="org-badge ub" title="University at Buffalo">UB</span> Campus Living · University at Buffalo, NY</p>
             <ul>
               <li>Managed resident inquiries and concerns, enhancing satisfaction through proactive communication and efficient problem-solving.</li>
             </ul>
@@ -183,75 +187,89 @@
   <section id="projects" class="section">
     <div class="container">
       <h2 class="section-title reveal"><span class="tag tag-purple"><svg class="icon"><use href="#icon-flask"/></svg>03</span> Research Projects</h2>
-      <div class="card-grid reveal-group">
+      <div class="rtimeline reveal-group">
 
-        <article class="card reveal-item">
-          <span class="card-icon ci-cardinal"><svg class="icon"><use href="#icon-cell"/></svg></span>
-          <p class="card-date">Nov 2025 · Stanford School of Medicine — Radiology</p>
-          <h3>Non-Genomic Estrogen Signaling Through ER-α36</h3>
-          <p class="card-sub">Promotes proliferation and endocrine resistance in TNBC</p>
-          <p>Investigated the activity and protein interactions of ER-α36 in non-genomic estrogen signaling.
-          Developed and applied a split-luciferase bioluminescence complementation assay to measure ligand-binding
-          domain activity and crosstalk with ERα and ERβ. Complemented imaging data with proliferation assays,
-          FACS-based live/dead and cell cycle analysis, and western blotting.</p>
+        <article class="rtimeline-item reveal-item">
+          <span class="rtimeline-node ci-cardinal"><svg class="icon"><use href="#icon-cell"/></svg></span>
+          <div class="rtimeline-content">
+            <p class="card-date">Nov 2025 · Stanford School of Medicine — Radiology</p>
+            <h3>Non-Genomic Estrogen Signaling Through ER-α36</h3>
+            <p class="card-sub">Promotes proliferation and endocrine resistance in TNBC</p>
+            <p>Investigated the activity and protein interactions of ER-α36 in non-genomic estrogen signaling.
+            Developed and applied a split-luciferase bioluminescence complementation assay to measure ligand-binding
+            domain activity and crosstalk with ERα and ERβ. Complemented imaging data with proliferation assays,
+            FACS-based live/dead and cell cycle analysis, and western blotting.</p>
+          </div>
         </article>
 
-        <article class="card reveal-item">
-          <span class="card-icon ci-purple"><svg class="icon"><use href="#icon-dna"/></svg></span>
-          <p class="card-date">Feb 2025 · Stanford School of Medicine — Radiology</p>
-          <h3>SUMOylation of Amyloid Precursor Protein</h3>
-          <p class="card-sub">A steric hindrance strategy to prevent amyloidogenic processing in Alzheimer's disease</p>
-          <p>Investigated SUMOylation of APP as a strategy to sterically hinder secretase access, preventing amyloid-β
-          production — disrupting the amyloidogenic cascade at its origin and highlighting a therapeutic avenue for
-          modifying disease progression at the molecular level.</p>
+        <article class="rtimeline-item reveal-item">
+          <span class="rtimeline-node ci-purple"><svg class="icon"><use href="#icon-dna"/></svg></span>
+          <div class="rtimeline-content">
+            <p class="card-date">Feb 2025 · Stanford School of Medicine — Radiology</p>
+            <h3>SUMOylation of Amyloid Precursor Protein</h3>
+            <p class="card-sub">A steric hindrance strategy to prevent amyloidogenic processing in Alzheimer's disease</p>
+            <p>Investigated SUMOylation of APP as a strategy to sterically hinder secretase access, preventing amyloid-β
+            production — disrupting the amyloidogenic cascade at its origin and highlighting a therapeutic avenue for
+            modifying disease progression at the molecular level.</p>
+          </div>
         </article>
 
-        <article class="card reveal-item">
-          <span class="card-icon ci-teal"><svg class="icon"><use href="#icon-microscope"/></svg></span>
-          <p class="card-date">Jun 2025 · Stanford School of Medicine — Radiology</p>
-          <h3>Early Diagnosis of Renal Cell Carcinoma</h3>
-          <p class="card-sub">B7-H3 targeted molecular imaging probes</p>
-          <p>Established a preclinical model injecting RENCA cells into mice for in vivo monitoring of B7-H3
-          expression dynamics. Characterized B7-H3's immune checkpoint function and association with T
-          cell–mediated tumor cytotoxicity, advancing targeted immunotherapies in renal cancer.</p>
-          <p class="card-note"><svg class="icon"><use href="#icon-award"/></svg> 2nd place, Canary Center Symposium — "The Science of Seeing Disease Earlier," Apr 2026</p>
+        <article class="rtimeline-item reveal-item">
+          <span class="rtimeline-node ci-teal"><svg class="icon"><use href="#icon-mouse"/></svg></span>
+          <div class="rtimeline-content">
+            <p class="card-date">Jun 2025 · Stanford School of Medicine — Radiology</p>
+            <h3>Early Diagnosis of Renal Cell Carcinoma</h3>
+            <p class="card-sub">B7-H3 targeted molecular imaging probes</p>
+            <p>Established a preclinical model injecting RENCA cells into mice for in vivo monitoring of B7-H3
+            expression dynamics. Characterized B7-H3's immune checkpoint function and association with T
+            cell–mediated tumor cytotoxicity, advancing targeted immunotherapies in renal cancer.</p>
+            <p class="card-note"><svg class="icon"><use href="#icon-award"/></svg> 2nd place, Canary Center Symposium — "The Science of Seeing Disease Earlier," Apr 2026</p>
+          </div>
         </article>
 
-        <article class="card reveal-item">
-          <span class="card-icon ci-gold"><svg class="icon"><use href="#icon-molecule"/></svg></span>
-          <p class="card-date">Aug 2022 – Jan 2025 · UB, Dr. Natesh Parashurama's STEMMIL</p>
-          <h3>Partial Reprogramming of the Liver Gene Regulatory Network</h3>
-          <p class="card-sub">Targeting HNF4a and FOXA1/2/3 in hepatic cells</p>
-          <p>Refined the GRN involved in liver cell development using hPSCs. Used siRNA in HEPG2 cells; assessed
-          results via qRT-PCR, western blot, immunostaining, and fluorescence microscopy — improving differentiation,
-          maturity, and yield of hPSC-derived hepatocytes.</p>
+        <article class="rtimeline-item reveal-item">
+          <span class="rtimeline-node ci-gold"><svg class="icon"><use href="#icon-molecule"/></svg></span>
+          <div class="rtimeline-content">
+            <p class="card-date">Aug 2022 – Jan 2025 · UB, Dr. Natesh Parashurama's STEMMIL</p>
+            <h3>Partial Reprogramming of the Liver Gene Regulatory Network</h3>
+            <p class="card-sub">Targeting HNF4a and FOXA1/2/3 in hepatic cells</p>
+            <p>Refined the GRN involved in liver cell development using hPSCs. Used siRNA in HEPG2 cells; assessed
+            results via qRT-PCR, western blot, immunostaining, and fluorescence microscopy — improving differentiation,
+            maturity, and yield of hPSC-derived hepatocytes.</p>
+          </div>
         </article>
 
-        <article class="card reveal-item">
-          <span class="card-icon ci-cardinal"><svg class="icon"><use href="#icon-pipette"/></svg></span>
-          <p class="card-date">Dec 2021 – May 2022 · Dynamic Megaceutics</p>
-          <h3>Antidiabetic Potential of Ipomoea batatas</h3>
-          <p class="card-sub">Using Danio rerio (zebrafish) models</p>
-          <p>Tested phytochemical properties of Ipomoea batatas extract on control and diabetes-induced fish.
-          Formulated a new diet to evaluate anti-diabetic effects, performed assays, and recorded morphological changes.</p>
+        <article class="rtimeline-item reveal-item">
+          <span class="rtimeline-node ci-cardinal"><svg class="icon"><use href="#icon-fish"/></svg></span>
+          <div class="rtimeline-content">
+            <p class="card-date">Dec 2021 – May 2022 · Dynamic Megaceutics</p>
+            <h3>Antidiabetic Potential of Ipomoea batatas</h3>
+            <p class="card-sub">Using Danio rerio (zebrafish) models</p>
+            <p>Tested phytochemical properties of Ipomoea batatas extract on control and diabetes-induced fish.
+            Formulated a new diet to evaluate anti-diabetic effects, performed assays, and recorded morphological changes.</p>
+          </div>
         </article>
 
-        <article class="card reveal-item">
-          <span class="card-icon ci-teal"><svg class="icon"><use href="#icon-beaker"/></svg></span>
-          <p class="card-date">Aug 2021 – Oct 2021 · Geomarine Biotechnologies</p>
-          <h3>Probiotic Supplements for Penaeus vannamei Shrimp</h3>
-          <p class="card-sub">Yeast-derived beta-glucan and oligomannan supplementation</p>
-          <p>Cultivated Saccharomyces cerevisiae strains and extracted beta-glucans and oligomannans for shrimp
-          supplements. Tested concentrations on PL 20 for morphological changes and monitored growth.</p>
+        <article class="rtimeline-item reveal-item">
+          <span class="rtimeline-node ci-teal"><svg class="icon"><use href="#icon-beaker"/></svg></span>
+          <div class="rtimeline-content">
+            <p class="card-date">Aug 2021 – Oct 2021 · Geomarine Biotechnologies</p>
+            <h3>Probiotic Supplements for Penaeus vannamei Shrimp</h3>
+            <p class="card-sub">Yeast-derived beta-glucan and oligomannan supplementation</p>
+            <p>Cultivated Saccharomyces cerevisiae strains and extracted beta-glucans and oligomannans for shrimp
+            supplements. Tested concentrations on PL 20 for morphological changes and monitored growth.</p>
+          </div>
         </article>
 
-        <article class="card reveal-item">
-          <span class="card-icon ci-purple"><svg class="icon"><use href="#icon-flask"/></svg></span>
-          <p class="card-date">Jul 2021 – Sep 2021 · Avigen Biotech</p>
-          <h3>Natural Plant Drugs for In-Vitro Antidiabetic Activity</h3>
-          <p class="card-sub">Comparative phytochemical evaluation</p>
-          <p>Conducted quantitative, qualitative, and phytochemical screening on Alternanthera sessilis and
-          Cinnamomum verum extracts to evaluate their anti-diabetic activity.</p>
+        <article class="rtimeline-item reveal-item">
+          <span class="rtimeline-node ci-purple"><svg class="icon"><use href="#icon-flask"/></svg></span>
+          <div class="rtimeline-content">
+            <p class="card-date">Jul 2021 – Sep 2021 · Avigen Biotech</p>
+            <h3>Natural Plant Drugs for In-Vitro Antidiabetic Activity</h3>
+            <p class="card-sub">Comparative phytochemical evaluation</p>
+            <p>Conducted quantitative, qualitative, and phytochemical screening on Alternanthera sessilis and
+            Cinnamomum verum extracts to evaluate their anti-diabetic activity.</p>
+          </div>
         </article>
 
       </div>
@@ -295,7 +313,7 @@
           <p>Ultrasound, incubators, hemocytometer, pipettes, Incucyte, spectrophotometer, Nanodrop, iBlot, centrifuges, ChemiDoc, thermocycler, fluorescence imager, autoclave, cryotanks, BSL-2, sonicator, high-pressure homogenizer.</p>
         </div>
         <div class="skill-group reveal-item">
-          <h3><svg class="icon skill-icon ic-teal"><use href="#icon-syringe"/></svg> In Vivo Techniques</h3>
+          <h3><svg class="icon skill-icon ic-teal"><use href="#icon-mouse"/></svg> In Vivo Techniques</h3>
           <p>Rodent (rat &amp; mice), fish and shrimp handling — necropsy, dosing, tumor measurement, tissue culture/collection, surgery &amp; anesthesia, in vivo imaging.</p>
         </div>
         <div class="skill-group reveal-item">
@@ -313,7 +331,7 @@
         <article class="edu-card reveal-item">
           <p class="edu-date">Aug 2022 – Jan 2025</p>
           <h3>M.S., Chemical and Biological Engineering</h3>
-          <p>University at Buffalo, The State University of New York — Buffalo, NY</p>
+          <p><span class="org-badge ub" title="University at Buffalo">UB</span> University at Buffalo, The State University of New York — Buffalo, NY</p>
         </article>
         <article class="edu-card reveal-item">
           <p class="edu-date">Aug 2018 – Jul 2022</p>
@@ -358,12 +376,12 @@
           <span class="contact-label">Location</span>
           <span class="contact-value">Palo Alto, CA</span>
         </div>
-        <a class="contact-item reveal-item" href="#" target="_blank" rel="noopener">
+        <a class="contact-item reveal-item" href="https://www.linkedin.com/in/lokprakash-aravindan/" target="_blank" rel="noopener">
           <span class="contact-icon ci-purple"><svg class="icon"><use href="#icon-external"/></svg></span>
           <span class="contact-label">LinkedIn</span>
           <span class="contact-value">View Profile →</span>
         </a>
-        <a class="contact-item reveal-item" href="#" target="_blank" rel="noopener">
+        <a class="contact-item reveal-item" href="https://orcid.org/0009-0005-4551-0682" target="_blank" rel="noopener">
           <span class="contact-icon ci-gold"><svg class="icon"><use href="#icon-external"/></svg></span>
           <span class="contact-label">ORCID</span>
           <span class="contact-value">View Profile →</span>
