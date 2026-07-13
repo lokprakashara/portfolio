@@ -1,27 +1,27 @@
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 
-const navToggle = document.getElementById('navToggle');
-const nav = document.getElementById('nav');
+const navToggle = document.getElementById("navToggle");
+const nav = document.getElementById("nav");
 
-navToggle.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', String(isOpen));
+navToggle.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  navToggle.setAttribute("aria-expanded", String(isOpen));
 });
 
-nav.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
+nav.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
   });
 });
 
-const heroEl = document.querySelector('.hero');
+const heroEl = document.querySelector(".hero");
 
-if (heroEl && 'IntersectionObserver' in window) {
+if (heroEl && "IntersectionObserver" in window) {
   const heroObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        heroEl.classList.toggle('is-offscreen', !entry.isIntersecting);
+        heroEl.classList.toggle("is-offscreen", !entry.isIntersecting);
       });
     },
     { threshold: 0 }
@@ -29,8 +29,11 @@ if (heroEl && 'IntersectionObserver' in window) {
   heroObserver.observe(heroEl);
 }
 
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const gsapReady = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+const gsapReady =
+  typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
 
 if (gsapReady) {
   gsap.registerPlugin(ScrollTrigger);
@@ -38,7 +41,7 @@ if (gsapReady) {
 
 /* ---------- Loading screen ---------- */
 function setupLoader() {
-  const loader = document.getElementById('loader');
+  const loader = document.getElementById("loader");
   if (!loader) return;
   let done = false;
   const hide = () => {
@@ -49,16 +52,16 @@ function setupLoader() {
         opacity: 0,
         scale: 1.05,
         duration: 0.6,
-        ease: 'power2.inOut',
+        ease: "power2.inOut",
         onComplete: () => loader.remove(),
       });
     } else {
-      loader.style.transition = 'opacity 0.4s ease';
-      loader.style.opacity = '0';
+      loader.style.transition = "opacity 0.4s ease";
+      loader.style.opacity = "0";
       setTimeout(() => loader.remove(), 450);
     }
   };
-  window.addEventListener('load', () => setTimeout(hide, 300));
+  window.addEventListener("load", () => setTimeout(hide, 300));
   setTimeout(hide, 2500);
   // Hard fallback: guarantees the loader is gone even if GSAP/rAF never
   // progresses the fade (e.g. animation engine failure). The loader must
@@ -80,12 +83,12 @@ function disableLenis() {
     }
     lenis = null;
   }
-  document.documentElement.classList.add('no-lenis');
+  document.documentElement.classList.add("no-lenis");
 }
 
 function setupLenis() {
-  if (prefersReducedMotion || typeof Lenis === 'undefined') {
-    document.documentElement.classList.add('no-lenis');
+  if (prefersReducedMotion || typeof Lenis === "undefined") {
+    document.documentElement.classList.add("no-lenis");
     return;
   }
   lenis = new Lenis({
@@ -125,59 +128,42 @@ function setupLenis() {
       }
     }, 700);
   };
-  window.addEventListener('wheel', scheduleCheck, { passive: true });
-  window.addEventListener('touchmove', scheduleCheck, { passive: true });
+  window.addEventListener("wheel", scheduleCheck, { passive: true });
+  window.addEventListener("touchmove", scheduleCheck, { passive: true });
 }
 
 /* ---------- Scroll progress bar ---------- */
 function setupScrollProgress() {
-  const bar = document.getElementById('scrollProgress');
+  const bar = document.getElementById("scrollProgress");
   if (!bar) return;
   const update = () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = height > 0 ? Math.min(1, Math.max(0, scrollTop / height)) : 0;
+    const progress =
+      height > 0 ? Math.min(1, Math.max(0, scrollTop / height)) : 0;
     bar.style.transform = `scaleX(${progress})`;
   };
   // Lenis moves the real window scroll position, so native scroll events fire
   // either way — listening natively keeps this working even if Lenis later
   // falls back via the watchdog in setupLenis().
-  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener("scroll", update, { passive: true });
   update();
-}
-
-/* ---------- Cursor glow ---------- */
-function setupCursorGlow() {
-  if (!gsapReady) return;
-  const glow = document.getElementById('cursorGlow');
-  if (!glow || window.matchMedia('(hover: none)').matches) return;
-  const setX = gsap.quickTo(glow, 'x', { duration: 0.5, ease: 'power3' });
-  const setY = gsap.quickTo(glow, 'y', { duration: 0.5, ease: 'power3' });
-  window.addEventListener(
-    'mousemove',
-    (e) => {
-      glow.classList.add('is-active');
-      setX(e.clientX);
-      setY(e.clientY);
-    },
-    { passive: true }
-  );
 }
 
 /* ---------- Magnetic buttons ---------- */
 function setupMagnetic() {
   if (!gsapReady) return;
-  document.querySelectorAll('.magnetic').forEach((el) => {
-    const setX = gsap.quickTo(el, 'x', { duration: 0.4, ease: 'power3' });
-    const setY = gsap.quickTo(el, 'y', { duration: 0.4, ease: 'power3' });
-    el.addEventListener('mousemove', (e) => {
+  document.querySelectorAll(".magnetic").forEach((el) => {
+    const setX = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3" });
+    const setY = gsap.quickTo(el, "y", { duration: 0.4, ease: "power3" });
+    el.addEventListener("mousemove", (e) => {
       const rect = el.getBoundingClientRect();
       const relX = e.clientX - rect.left - rect.width / 2;
       const relY = e.clientY - rect.top - rect.height / 2;
       setX(gsap.utils.clamp(-16, 16, relX * 0.35));
       setY(gsap.utils.clamp(-16, 16, relY * 0.35));
     });
-    el.addEventListener('mouseleave', () => {
+    el.addEventListener("mouseleave", () => {
       setX(0);
       setY(0);
     });
@@ -187,33 +173,150 @@ function setupMagnetic() {
 /* ---------- 3D hero tilt ---------- */
 function setupTilt() {
   if (!gsapReady) return;
-  const hero = document.querySelector('.hero');
-  const tilt = document.getElementById('heroTilt');
+  const hero = document.querySelector(".hero");
+  const tilt = document.getElementById("heroTilt");
   if (!hero || !tilt) return;
-  const setRX = gsap.quickTo(tilt, 'rotationX', { duration: 0.6, ease: 'power3' });
-  const setRY = gsap.quickTo(tilt, 'rotationY', { duration: 0.6, ease: 'power3' });
-  hero.addEventListener('mousemove', (e) => {
+  const setRX = gsap.quickTo(tilt, "rotationX", {
+    duration: 0.6,
+    ease: "power3",
+  });
+  const setRY = gsap.quickTo(tilt, "rotationY", {
+    duration: 0.6,
+    ease: "power3",
+  });
+  hero.addEventListener("mousemove", (e) => {
     const rect = hero.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width - 0.5;
     const py = (e.clientY - rect.top) / rect.height - 0.5;
     setRY(gsap.utils.clamp(-5, 5, px * 10));
     setRX(gsap.utils.clamp(-5, 5, -py * 10));
   });
-  hero.addEventListener('mouseleave', () => {
+  hero.addEventListener("mouseleave", () => {
     setRX(0);
     setRY(0);
+  });
+}
+
+/* ---------- 3D tilt on project & skill cards ---------- */
+function setupCardTilt() {
+  if (!gsapReady) return;
+  document
+    .querySelectorAll(".rtimeline-content, .skill-group")
+    .forEach((card) => {
+      card.style.transformStyle = "preserve-3d";
+      // GSAP writes transform via inline style, which outranks the CSS :hover
+      // lift — fold the lift into this same tween chain so it isn't lost.
+      const setRX = gsap.quickTo(card, "rotationX", {
+        duration: 0.5,
+        ease: "power3",
+      });
+      const setRY = gsap.quickTo(card, "rotationY", {
+        duration: 0.5,
+        ease: "power3",
+      });
+      const setY = gsap.quickTo(card, "y", { duration: 0.4, ease: "power3" });
+      card.addEventListener("mouseenter", () => setY(-4));
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        setRY(gsap.utils.clamp(-6, 6, px * 12));
+        setRX(gsap.utils.clamp(-6, 6, -py * 12));
+      });
+      card.addEventListener("mouseleave", () => {
+        setRX(0);
+        setRY(0);
+        setY(0);
+      });
+    });
+}
+
+/* ---------- Hero background parallax on scroll ---------- */
+function setupHeroParallax() {
+  if (!gsapReady) return;
+  const hero = document.querySelector(".hero");
+  const bg = document.querySelector(".hero-bg");
+  const icons = document.querySelector(".hero-icons");
+  if (!hero) return;
+  if (bg) {
+    gsap.to(bg, {
+      yPercent: 26,
+      ease: "none",
+      scrollTrigger: {
+        trigger: hero,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  }
+  if (icons) {
+    gsap.to(icons, {
+      yPercent: 14,
+      ease: "none",
+      scrollTrigger: {
+        trigger: hero,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  }
+}
+
+/* ---------- Section title underline draw-in ---------- */
+function setupTitleUnderline() {
+  if (!gsapReady) return;
+  gsap.utils.toArray(".section-title").forEach((el) => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: "top 85%",
+      once: true,
+      onEnter: () => el.classList.add("underline-in"),
+    });
+  });
+}
+
+/* ---------- Tag badge pop-in ---------- */
+function setupTagPop() {
+  if (!gsapReady) return;
+  gsap.utils.toArray(".section-title .tag").forEach((el) => {
+    gsap.fromTo(
+      el,
+      { scale: 0, rotate: -12 },
+      {
+        scale: 1,
+        rotate: 0,
+        duration: 0.6,
+        ease: "back.out(2.4)",
+        scrollTrigger: { trigger: el, start: "top 88%" },
+      }
+    );
+  });
+}
+
+/* ---------- Nav entrance ---------- */
+function setupNavEntrance() {
+  if (!gsapReady) return;
+  gsap.from(".nav a", {
+    opacity: 0,
+    y: -10,
+    duration: 0.5,
+    stagger: 0.06,
+    ease: "power2.out",
+    delay: 0.2,
   });
 }
 
 /* ---------- Particle burst on hero name ---------- */
 function setupParticleBurst() {
   if (!gsapReady) return;
-  const nameEl = document.getElementById('heroName');
+  const nameEl = document.getElementById("heroName");
   if (!nameEl) return;
-  const colors = ['#2f6fed', '#6366f1', '#0891b2', '#c08a1e'];
+  const colors = ["#2f6fed", "#6366f1", "#0891b2", "#c08a1e"];
   let cooldown = false;
 
-  nameEl.addEventListener('mouseenter', () => {
+  nameEl.addEventListener("mouseenter", () => {
     if (cooldown) return;
     cooldown = true;
     const rect = nameEl.getBoundingClientRect();
@@ -222,10 +325,10 @@ function setupParticleBurst() {
     const count = 16;
 
     for (let i = 0; i < count; i++) {
-      const p = document.createElement('span');
-      p.className = 'particle-burst';
-      p.style.left = originX + 'px';
-      p.style.top = originY + 'px';
+      const p = document.createElement("span");
+      p.className = "particle-burst";
+      p.style.left = originX + "px";
+      p.style.top = originY + "px";
       p.style.background = colors[i % colors.length];
       nameEl.appendChild(p);
 
@@ -234,8 +337,14 @@ function setupParticleBurst() {
 
       gsap
         .timeline({ onComplete: () => p.remove() })
-        .to(p, { x: Math.cos(angle) * dist, y: Math.sin(angle) * dist, opacity: 1, duration: 0.35, ease: 'power2.out' })
-        .to(p, { x: 0, y: 0, opacity: 0, duration: 0.45, ease: 'power2.in' });
+        .to(p, {
+          x: Math.cos(angle) * dist,
+          y: Math.sin(angle) * dist,
+          opacity: 1,
+          duration: 0.35,
+          ease: "power2.out",
+        })
+        .to(p, { x: 0, y: 0, opacity: 0, duration: 0.45, ease: "power2.in" });
     }
 
     setTimeout(() => {
@@ -246,29 +355,29 @@ function setupParticleBurst() {
 
 /* ---------- Animated counters ---------- */
 function setupCounters() {
-  const counters = document.querySelectorAll('.counter');
+  const counters = document.querySelectorAll(".counter");
   if (!counters.length) return;
 
   if (!gsapReady) {
     counters.forEach((el) => {
-      el.textContent = (el.dataset.count || '0') + (el.dataset.suffix || '');
+      el.textContent = (el.dataset.count || "0") + (el.dataset.suffix || "");
     });
     return;
   }
 
   counters.forEach((el) => {
-    const target = parseFloat(el.dataset.count || '0');
-    const suffix = el.dataset.suffix || '';
+    const target = parseFloat(el.dataset.count || "0");
+    const suffix = el.dataset.suffix || "";
     const obj = { val: 0 };
     ScrollTrigger.create({
       trigger: el,
-      start: 'top 92%',
+      start: "top 92%",
       once: true,
       onEnter: () => {
         gsap.to(obj, {
           val: target,
           duration: 1.6,
-          ease: 'power2.out',
+          ease: "power2.out",
           onUpdate: () => {
             el.textContent = Math.round(obj.val) + suffix;
           },
@@ -286,15 +395,20 @@ function setupCounters() {
 /* ---------- SVG line-draw (hero DNA icon) ---------- */
 function setupLineDraw() {
   if (!gsapReady) return;
-  const svg = document.querySelector('.hi-1');
+  const svg = document.querySelector(".hi-1");
   if (!svg) return;
-  const paths = svg.querySelectorAll('path');
+  const paths = svg.querySelectorAll("path");
   paths.forEach((p) => {
     try {
       const len = p.getTotalLength();
       p.style.strokeDasharray = String(len);
       p.style.strokeDashoffset = String(len);
-      gsap.to(p, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut', delay: 0.3 + Math.random() * 0.4 });
+      gsap.to(p, {
+        strokeDashoffset: 0,
+        duration: 1.6,
+        ease: "power2.inOut",
+        delay: 0.3 + Math.random() * 0.4,
+      });
     } catch (err) {
       /* unsupported geometry — skip silently */
     }
@@ -303,38 +417,56 @@ function setupLineDraw() {
 
 /* ---------- Per-section scroll reveals ---------- */
 function setupScrollReveals() {
-  gsap.utils.toArray('.reveal').forEach((el) => {
+  gsap.utils.toArray(".reveal").forEach((el) => {
     gsap.fromTo(
       el,
       { opacity: 0, y: 24 },
-      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } }
-    );
-  });
-
-  gsap.utils.toArray('#experience .reveal-item').forEach((el) => {
-    gsap.fromTo(
-      el,
-      { opacity: 0, x: -60 },
-      { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } }
-    );
-  });
-
-  gsap.utils.toArray('#skills .reveal-item').forEach((el, i) => {
-    gsap.fromTo(
-      el,
-      { opacity: 0, rotationY: -85, transformPerspective: 800 },
       {
         opacity: 1,
-        rotationY: 0,
+        y: 0,
         duration: 0.8,
-        ease: 'power2.out',
-        delay: (i % 4) * 0.06,
-        scrollTrigger: { trigger: el, start: 'top 92%' },
+        ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 85%" },
       }
     );
   });
 
-  gsap.utils.toArray('#education .reveal-item').forEach((el, i) => {
+  gsap.utils.toArray("#experience .reveal-item").forEach((el) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, x: -60 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 88%" },
+      }
+    );
+  });
+
+  gsap.utils.toArray("#skills .reveal-item").forEach((el, i) => {
+    // Explicitly zero x/y here — the CSS default for .reveal-item includes
+    // its own translateY(20px), and since this tween only ever touched
+    // rotationY/opacity, that offset was never cleared, leaving some cards
+    // visibly a few pixels out of line with the rest of the grid.
+    gsap.fromTo(
+      el,
+      { opacity: 0, x: 0, y: 0, rotationY: -85, transformPerspective: 800 },
+      {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        rotationY: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: (i % 4) * 0.06,
+        scrollTrigger: { trigger: el, start: "top 92%" },
+      }
+    );
+  });
+
+  gsap.utils.toArray("#education .reveal-item").forEach((el, i) => {
     gsap.fromTo(
       el,
       { opacity: 0, scale: 0.82 },
@@ -342,30 +474,30 @@ function setupScrollReveals() {
         opacity: 1,
         scale: 1,
         duration: 0.6,
-        ease: 'back.out(1.6)',
+        ease: "back.out(1.6)",
         delay: (i % 6) * 0.05,
-        scrollTrigger: { trigger: el, start: 'top 94%' },
+        scrollTrigger: { trigger: el, start: "top 94%" },
       }
     );
   });
 
-  gsap.utils.toArray('#contact .reveal-item').forEach((el, i) => {
+  gsap.utils.toArray("#contact .reveal-item").forEach((el, i) => {
     gsap.fromTo(
       el,
-      { opacity: 0, filter: 'blur(10px)', y: 16 },
+      { opacity: 0, filter: "blur(10px)", y: 16 },
       {
         opacity: 1,
-        filter: 'blur(0px)',
+        filter: "blur(0px)",
         y: 0,
         duration: 0.8,
         delay: i * 0.06,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 92%' },
+        ease: "power2.out",
+        scrollTrigger: { trigger: el, start: "top 92%" },
       }
     );
   });
 
-  gsap.utils.toArray('#publications .reveal-item').forEach((el, i) => {
+  gsap.utils.toArray("#publications .reveal-item").forEach((el, i) => {
     gsap.fromTo(
       el,
       { opacity: 0, y: 24 },
@@ -374,8 +506,8 @@ function setupScrollReveals() {
         y: 0,
         duration: 0.8,
         delay: i * 0.08,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 90%' },
+        ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 90%" },
       }
     );
   });
@@ -383,25 +515,25 @@ function setupScrollReveals() {
 
 /* ---------- Research timeline: line draw + node pop + card slide ---------- */
 function setupProjectsTimeline() {
-  const rtSection = document.querySelector('.rtimeline');
-  const line = document.getElementById('rtimelineLine');
+  const rtSection = document.querySelector(".rtimeline");
+  const line = document.getElementById("rtimelineLine");
   if (!rtSection || !line) return;
 
   gsap.set(line, { scaleY: 0 });
   gsap.to(line, {
     scaleY: 1,
-    ease: 'none',
+    ease: "none",
     scrollTrigger: {
       trigger: rtSection,
-      start: 'top 78%',
-      end: 'bottom 75%',
+      start: "top 78%",
+      end: "bottom 75%",
       scrub: 0.6,
     },
   });
 
-  gsap.utils.toArray('.rtimeline-item').forEach((item, i) => {
-    const node = item.querySelector('.rtimeline-node');
-    const content = item.querySelector('.rtimeline-content');
+  gsap.utils.toArray(".rtimeline-item").forEach((item, i) => {
+    const node = item.querySelector(".rtimeline-node");
+    const content = item.querySelector(".rtimeline-content");
     if (!node || !content) return;
     const fromX = i % 2 === 0 ? -50 : 50;
 
@@ -409,30 +541,34 @@ function setupProjectsTimeline() {
     gsap.set(content, { opacity: 0, x: fromX });
 
     gsap
-      .timeline({ scrollTrigger: { trigger: item, start: 'top 82%' } })
-      .to(node, { scale: 1, duration: 0.45, ease: 'back.out(2.4)' })
-      .to(content, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, '-=0.2');
+      .timeline({ scrollTrigger: { trigger: item, start: "top 82%" } })
+      .to(node, { scale: 1, duration: 0.45, ease: "back.out(2.4)" })
+      .to(
+        content,
+        { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" },
+        "-=0.2"
+      );
   });
 }
 
 /* ---------- Fallback reveal (no GSAP) ---------- */
 function setupFallbackReveal() {
-  const revealTargets = document.querySelectorAll('.reveal, .reveal-group');
-  if ('IntersectionObserver' in window && revealTargets.length) {
+  const revealTargets = document.querySelectorAll(".reveal, .reveal-group");
+  if ("IntersectionObserver" in window && revealTargets.length) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            entry.target.classList.add("is-visible");
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
     );
     revealTargets.forEach((el) => observer.observe(el));
   } else {
-    revealTargets.forEach((el) => el.classList.add('is-visible'));
+    revealTargets.forEach((el) => el.classList.add("is-visible"));
   }
 }
 
@@ -445,27 +581,37 @@ if (gsapReady) {
   setupScrollReveals();
   setupProjectsTimeline();
   setupLineDraw();
+  setupTitleUnderline();
+  setupTagPop();
+  setupNavEntrance();
 } else {
   setupFallbackReveal();
 }
 
 if (!prefersReducedMotion) {
-  setupCursorGlow();
   setupMagnetic();
   setupTilt();
+  setupCardTilt();
+  setupHeroParallax();
   setupParticleBurst();
 }
 
 /* ---------- Animated molecule/network background ---------- */
 (() => {
-  const canvas = document.getElementById('bg-canvas');
+  const canvas = document.getElementById("bg-canvas");
   if (!canvas) return;
 
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext("2d");
   const reduceMotion = prefersReducedMotion;
-  const dotColors = ['47,111,237', '8,145,178', '99,102,241'];
+  const dotColors = ["47,111,237", "8,145,178", "99,102,241"];
 
-  let width, height, dpr, particles, maxDist, rafId, running = true;
+  let width,
+    height,
+    dpr,
+    particles,
+    maxDist,
+    rafId,
+    running = true;
 
   function sizeCanvas() {
     width = window.innerWidth;
@@ -477,7 +623,10 @@ if (!prefersReducedMotion) {
   }
 
   function makeParticles() {
-    const count = Math.max(26, Math.min(64, Math.round((width * height) / 24000)));
+    const count = Math.max(
+      26,
+      Math.min(64, Math.round((width * height) / 24000))
+    );
     maxDist = Math.max(110, Math.min(160, width / 9));
     particles = Array.from({ length: count }, () => ({
       x: Math.random() * width,
@@ -544,12 +693,12 @@ if (!prefersReducedMotion) {
   }
 
   let resizeTimer;
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(start, 200);
   });
 
-  document.addEventListener('visibilitychange', () => {
+  document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       running = false;
       if (rafId) cancelAnimationFrame(rafId);

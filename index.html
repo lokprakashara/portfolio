@@ -1,424 +1,918 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lokprakash Aravindan — Research Assistant, Stanford Radiology</title>
-<meta name="description" content="Lokprakash Aravindan — Research Assistant at Stanford School of Medicine, Radiology. Molecular imaging, cell biology, and translational cancer research.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-<div class="loader" id="loader" aria-hidden="true">
-  <svg class="icon loader-dna"><use href="#icon-dna"/></svg>
-  <p>Loading Portfolio…</p>
-</div>
-
-<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-
-<svg style="display:none" aria-hidden="true">
-  <symbol id="icon-flask" viewBox="0 0 24 24"><path d="M9 2h6M10 2v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.5L14 8V2"/><path d="M7.5 14.5h9"/></symbol>
-  <symbol id="icon-microscope" viewBox="0 0 24 24"><path d="M6 20h9"/><path d="M9 20v-3.5"/><path d="M9 16.5a4 4 0 1 1 4-4"/><path d="M12.5 9L17 4.5"/><path d="M15.5 3l3 3"/><path d="M5 20h1"/></symbol>
-  <symbol id="icon-dna" viewBox="0 0 24 24"><path d="M6 3c0 6 12 6 12 12"/><path d="M18 21c0-6-12-6-12-12"/><path d="M7.5 6h9"/><path d="M6.5 9h11"/><path d="M6.5 15h11"/><path d="M7.5 18h9"/></symbol>
-  <symbol id="icon-atom" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/></symbol>
-  <symbol id="icon-cell" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1.4"/><circle cx="14" cy="9" r="1"/><circle cx="13" cy="14" r="1.6"/><circle cx="16" cy="14" r="0.8"/></symbol>
-  <symbol id="icon-syringe" viewBox="0 0 24 24"><path d="M3 21l3.5-3.5"/><path d="M6.5 17.5l7-7"/><path d="M12 6l6 6"/><path d="M15 3l6 6"/><path d="M17 5l-2 2"/><path d="M19.5 7.5l-2 2"/><path d="M9 15l2 2"/></symbol>
-  <symbol id="icon-pipette" viewBox="0 0 24 24"><path d="M14 3l7 7"/><path d="M17 4.5L6.5 15 4 20l5-2.5L19.5 7"/><path d="M9 12l3 3"/></symbol>
-  <symbol id="icon-molecule" viewBox="0 0 24 24"><circle cx="6" cy="7" r="1.6"/><circle cx="18" cy="7" r="1.6"/><circle cx="6" cy="17" r="1.6"/><circle cx="18" cy="17" r="1.6"/><circle cx="12" cy="12" r="1.8"/><path d="M7.4 8.2L10.6 11"/><path d="M16.6 8.2L13.4 11"/><path d="M7.4 15.8L10.6 13"/><path d="M16.6 15.8L13.4 13"/></symbol>
-  <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></symbol>
-  <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7.5 10.5L12 15l4.5-4.5"/><path d="M4 19h16"/></symbol>
-  <symbol id="icon-send" viewBox="0 0 24 24"><path d="M21 3L11 13"/><path d="M21 3l-7 18-4-8-8-4 19-6z"/></symbol>
-  <symbol id="icon-external" viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></symbol>
-  <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.2"/></symbol>
-  <symbol id="icon-beaker" viewBox="0 0 24 24"><path d="M8 2h8"/><path d="M9 2v6.5L4.5 17a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L15 8.5V2"/><path d="M6.5 15h11"/></symbol>
-  <symbol id="icon-book" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5v-17z"/><path d="M20 19H6.5A2.5 2.5 0 0 0 4 21.5"/></symbol>
-  <symbol id="icon-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></symbol>
-  <symbol id="icon-graduation" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></symbol>
-  <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></symbol>
-  <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></symbol>
-  <symbol id="icon-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></symbol>
-  <symbol id="icon-mouse" viewBox="0 0 24 24"><ellipse cx="10" cy="13" rx="6" ry="5"/><circle cx="6.5" cy="8" r="2"/><circle cx="11" cy="7.3" r="1.8"/><circle cx="8" cy="12" r="0.8" fill="currentColor" stroke="none"/><path d="M16 15c2.5 0 5 1 6 3"/></symbol>
-  <symbol id="icon-fish" viewBox="0 0 24 24"><path d="M3 12c3-4 8-6 12-6c3 0 5 2 6 6c-1 4-3 6-6 6c-4 0-9-2-12-6z"/><path d="M21 12l3-3v6l-3-3z"/><circle cx="8" cy="11" r="0.8" fill="currentColor" stroke="none"/><path d="M9 9c1-1 2-1 3-0.5"/></symbol>
-</svg>
-
-<a class="skip-link" href="#main">Skip to content</a>
-
-<div class="page-bg" aria-hidden="true">
-  <div class="page-grid"></div>
-  <span class="pbg-blob pbg-1"></span>
-  <span class="pbg-blob pbg-2"></span>
-  <span class="pbg-blob pbg-3"></span>
-  <span class="pbg-blob pbg-4"></span>
-  <span class="pbg-blob pbg-5"></span>
-  <canvas id="bg-canvas"></canvas>
-</div>
-
-<header class="site-header" id="top">
-  <div class="container header-inner">
-    <a class="brand" href="#top"><svg class="icon brand-icon"><use href="#icon-atom"/></svg> Lokprakash Aravindan</a>
-    <nav class="nav" id="nav">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<main id="main">
-
-  <section class="hero">
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-bg" aria-hidden="true">
-      <span class="blob blob-1"></span>
-      <span class="blob blob-2"></span>
-      <span class="blob blob-3"></span>
-      <span class="blob blob-4"></span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lokprakash Aravindan — Research Assistant, Stanford Radiology</title>
+    <meta
+      name="description"
+      content="Lokprakash Aravindan — Research Assistant at Stanford School of Medicine, Radiology. Molecular imaging, cell biology, and translational cancer research."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="loader" id="loader" aria-hidden="true">
+      <svg class="icon loader-dna"><use href="#icon-dna" /></svg>
+      <p>Loading Portfolio…</p>
     </div>
-    <div class="hero-icons" aria-hidden="true">
-      <svg class="icon hero-icon hi-1"><use href="#icon-dna"/></svg>
-      <svg class="icon hero-icon hi-3"><use href="#icon-microscope"/></svg>
-      <svg class="icon hero-icon hi-4"><use href="#icon-flask"/></svg>
-      <svg class="icon hero-icon hi-5"><use href="#icon-cell"/></svg>
-      <svg class="icon hero-icon hi-6"><use href="#icon-mouse"/></svg>
-      <svg class="icon hero-icon hi-7"><use href="#icon-molecule"/></svg>
-      <svg class="icon hero-flyer flyer-fish" aria-hidden="true"><use href="#icon-fish"/></svg>
-      <svg class="icon hero-flyer flyer-mouse" aria-hidden="true"><use href="#icon-mouse"/></svg>
+
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <svg style="display: none" aria-hidden="true">
+      <symbol id="icon-flask" viewBox="0 0 24 24">
+        <path
+          d="M9 2h6M10 2v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.5L14 8V2"
+        />
+        <path d="M7.5 14.5h9" />
+      </symbol>
+      <symbol id="icon-microscope" viewBox="0 0 24 24">
+        <path d="M6 20h9" />
+        <path d="M9 20v-3.5" />
+        <path d="M9 16.5a4 4 0 1 1 4-4" />
+        <path d="M12.5 9L17 4.5" />
+        <path d="M15.5 3l3 3" />
+        <path d="M5 20h1" />
+      </symbol>
+      <symbol id="icon-dna" viewBox="0 0 24 24">
+        <path d="M6 3c0 6 12 6 12 12" />
+        <path d="M18 21c0-6-12-6-12-12" />
+        <path d="M7.5 6h9" />
+        <path d="M6.5 9h11" />
+        <path d="M6.5 15h11" />
+        <path d="M7.5 18h9" />
+      </symbol>
+      <symbol id="icon-atom" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="1.6" />
+        <ellipse cx="12" cy="12" rx="9" ry="3.6" />
+        <ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)" />
+        <ellipse
+          cx="12"
+          cy="12"
+          rx="9"
+          ry="3.6"
+          transform="rotate(120 12 12)"
+        />
+      </symbol>
+      <symbol id="icon-cell" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="9" cy="10" r="1.4" />
+        <circle cx="14" cy="9" r="1" />
+        <circle cx="13" cy="14" r="1.6" />
+        <circle cx="16" cy="14" r="0.8" />
+      </symbol>
+      <symbol id="icon-syringe" viewBox="0 0 24 24">
+        <path d="M3 21l3.5-3.5" />
+        <path d="M6.5 17.5l7-7" />
+        <path d="M12 6l6 6" />
+        <path d="M15 3l6 6" />
+        <path d="M17 5l-2 2" />
+        <path d="M19.5 7.5l-2 2" />
+        <path d="M9 15l2 2" />
+      </symbol>
+      <symbol id="icon-pipette" viewBox="0 0 24 24">
+        <path d="M14 3l7 7" />
+        <path d="M17 4.5L6.5 15 4 20l5-2.5L19.5 7" />
+        <path d="M9 12l3 3" />
+      </symbol>
+      <symbol id="icon-molecule" viewBox="0 0 24 24">
+        <circle cx="6" cy="7" r="1.6" />
+        <circle cx="18" cy="7" r="1.6" />
+        <circle cx="6" cy="17" r="1.6" />
+        <circle cx="18" cy="17" r="1.6" />
+        <circle cx="12" cy="12" r="1.8" />
+        <path d="M7.4 8.2L10.6 11" />
+        <path d="M16.6 8.2L13.4 11" />
+        <path d="M7.4 15.8L10.6 13" />
+        <path d="M16.6 15.8L13.4 13" />
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M3.5 6.5L12 13l8.5-6.5" />
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M12 3v12" />
+        <path d="M7.5 10.5L12 15l4.5-4.5" />
+        <path d="M4 19h16" />
+      </symbol>
+      <symbol id="icon-send" viewBox="0 0 24 24">
+        <path d="M21 3L11 13" />
+        <path d="M21 3l-7 18-4-8-8-4 19-6z" />
+      </symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24">
+        <path d="M14 4h6v6" />
+        <path d="M20 4l-9 9" />
+        <path d="M18 14v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" />
+      </symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z" />
+        <circle cx="12" cy="9.5" r="2.2" />
+      </symbol>
+      <symbol id="icon-beaker" viewBox="0 0 24 24">
+        <path d="M8 2h8" />
+        <path
+          d="M9 2v6.5L4.5 17a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L15 8.5V2"
+        />
+        <path d="M6.5 15h11" />
+      </symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24">
+        <path
+          d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5v-17z"
+        />
+        <path d="M20 19H6.5A2.5 2.5 0 0 0 4 21.5" />
+      </symbol>
+      <symbol id="icon-award" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="5" />
+        <path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5" />
+      </symbol>
+      <symbol id="icon-graduation" viewBox="0 0 24 24">
+        <path d="M2 9l10-5 10 5-10 5-10-5z" />
+        <path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" />
+        <path d="M22 9v6" />
+      </symbol>
+      <symbol id="icon-briefcase" viewBox="0 0 24 24">
+        <rect x="3" y="7" width="18" height="12" rx="2" />
+        <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        <path d="M3 12h18" />
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="3.5" />
+        <path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" />
+      </symbol>
+      <symbol id="icon-monitor" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="12" rx="2" />
+        <path d="M8 20h8" />
+        <path d="M12 16v4" />
+      </symbol>
+      <symbol id="icon-mouse" viewBox="0 0 24 24">
+        <ellipse cx="10" cy="13" rx="6" ry="5" />
+        <circle cx="6.5" cy="8" r="2" />
+        <circle cx="11" cy="7.3" r="1.8" />
+        <circle cx="8" cy="12" r="0.8" fill="currentColor" stroke="none" />
+        <path d="M16 15c2.5 0 5 1 6 3" />
+      </symbol>
+      <symbol id="icon-fish" viewBox="0 0 24 24">
+        <path d="M3 12c3-4 8-6 12-6c3 0 5 2 6 6c-1 4-3 6-6 6c-4 0-9-2-12-6z" />
+        <path d="M21 12l3-3v6l-3-3z" />
+        <circle cx="8" cy="11" r="0.8" fill="currentColor" stroke="none" />
+        <path d="M9 9c1-1 2-1 3-0.5" />
+      </symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page-bg" aria-hidden="true">
+      <div class="page-grid"></div>
+      <span class="pbg-blob pbg-1"></span>
+      <span class="pbg-blob pbg-2"></span>
+      <span class="pbg-blob pbg-3"></span>
+      <span class="pbg-blob pbg-4"></span>
+      <span class="pbg-blob pbg-5"></span>
+      <canvas id="bg-canvas"></canvas>
     </div>
-    <div class="container hero-inner">
-      <div class="hero-tilt" id="heroTilt">
-        <p class="eyebrow">Research Assistant · Stanford School of Medicine, Radiology</p>
-        <p class="hero-tagline">Molecular Imaging <span>&amp;</span> Cancer Biology</p>
-        <h1 class="name-wrap" id="heroName"><span class="shimmer-text">Lokprakash Aravindan</span><svg class="icon hero-icon name-icon"><use href="#icon-mouse"/></svg></h1>
-        <p class="hero-lede">
-          Translational research in molecular imaging, cell biology, and cancer immunotherapy —
-          bridging bench-level experimental design with in vivo discovery.
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top"
+          ><svg class="icon brand-icon"><use href="#icon-atom" /></svg>
+          Lokprakash Aravindan</a
+        >
+        <nav class="nav" id="nav">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-bg" aria-hidden="true">
+          <span class="blob blob-1"></span>
+          <span class="blob blob-2"></span>
+          <span class="blob blob-3"></span>
+          <span class="blob blob-4"></span>
+        </div>
+        <div class="hero-icons" aria-hidden="true">
+          <svg class="icon hero-icon hi-1"><use href="#icon-dna" /></svg>
+          <svg class="icon hero-icon hi-3"><use href="#icon-microscope" /></svg>
+          <svg class="icon hero-icon hi-4"><use href="#icon-flask" /></svg>
+          <svg class="icon hero-icon hi-5"><use href="#icon-cell" /></svg>
+          <svg class="icon hero-icon hi-6"><use href="#icon-mouse" /></svg>
+          <svg class="icon hero-icon hi-7"><use href="#icon-molecule" /></svg>
+          <svg class="icon hero-flyer flyer-fish" aria-hidden="true">
+            <use href="#icon-fish" />
+          </svg>
+          <svg class="icon hero-flyer flyer-mouse" aria-hidden="true">
+            <use href="#icon-mouse" />
+          </svg>
+        </div>
+        <div class="container hero-inner">
+          <div class="hero-tilt" id="heroTilt">
+            <p class="eyebrow">
+              Research Assistant · Stanford School of Medicine, Radiology
+            </p>
+            <p class="hero-tagline">
+              Molecular Imaging <span>&amp;</span> Cancer Biology
+            </p>
+            <h1 class="name-wrap" id="heroName">
+              <span class="shimmer-text">Lokprakash Aravindan</span
+              ><svg class="icon hero-icon name-icon">
+                <use href="#icon-mouse" />
+              </svg>
+            </h1>
+            <p class="hero-lede">
+              Translational research in molecular imaging, cell biology, and
+              cancer immunotherapy — bridging bench-level experimental design
+              with in vivo discovery.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary magnetic" href="#contact"
+                ><svg class="icon"><use href="#icon-send" /></svg> Get in
+                touch</a
+              >
+              <a
+                class="btn btn-outline magnetic"
+                href="assets/Lokprakash_Aravindan_CV.pdf"
+                target="_blank"
+                rel="noopener"
+                ><svg class="icon"><use href="#icon-download" /></svg> Download
+                CV</a
+              >
+            </div>
+            <ul class="hero-meta">
+              <li>
+                <svg class="icon"><use href="#icon-pin" /></svg> Palo Alto, CA
+              </li>
+              <li>
+                <a href="mailto:lokpraka@stanford.edu"
+                  ><svg class="icon"><use href="#icon-mail" /></svg>
+                  lokpraka@stanford.edu</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/lokprakash-aravindan/"
+                  target="_blank"
+                  rel="noopener"
+                  ><svg class="icon"><use href="#icon-external" /></svg>
+                  LinkedIn</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://orcid.org/0009-0005-4551-0682"
+                  target="_blank"
+                  rel="noopener"
+                  ><svg class="icon"><use href="#icon-external" /></svg>
+                  ORCID</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="hero-stats glass">
+            <a class="stat" href="#experience"
+              ><span class="counter" data-count="4" data-suffix="+">0</span
+              ><small>Years Research</small></a
+            >
+            <a class="stat" href="#projects"
+              ><span class="counter" data-count="7" data-suffix="">0</span
+              ><small>Research Projects</small></a
+            >
+            <a class="stat" href="#skills"
+              ><span class="counter" data-count="30" data-suffix="+">0</span
+              ><small>Techniques &amp; Tools</small></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h2 class="section-title reveal">
+            <span class="tag tag-cardinal"
+              ><svg class="icon"><use href="#icon-user" /></svg>01</span
+            >
+            About
+          </h2>
+          <p class="lede reveal">
+            Currently a Research Assistant in the Radiology Department at
+            Stanford School of Medicine, with three years of specialized
+            experience in cell culture, in vivo molecular imaging, and advanced
+            biochemical, molecular, and microbiological methodologies.
+            Demonstrated proficiency in designing and executing intricate in
+            vivo and in vitro experimental protocols, alongside quality control
+            management. Recognized for exceptional organizational abilities and
+            attention to detail, with a strong history of refining laboratory
+            procedures and operations to maximize efficiency.
+          </p>
+        </div>
+      </section>
+
+      <section id="experience" class="section alt">
+        <div class="container">
+          <h2 class="section-title reveal">
+            <span class="tag tag-teal"
+              ><svg class="icon"><use href="#icon-briefcase" /></svg>02</span
+            >
+            Experience
+          </h2>
+
+          <div class="timeline reveal-group">
+            <article class="timeline-item reveal-item">
+              <div class="timeline-date">Feb 2025 – Present</div>
+              <div class="timeline-content">
+                <h3>Research Assistant</h3>
+                <p class="timeline-org">
+                  <span class="org-badge stanford" title="Stanford University"
+                    >S</span
+                  >
+                  MIPS Lab · Stanford University, CA
+                </p>
+                <ul>
+                  <li>
+                    Investigated estrogen receptor activity and interactions to
+                    identify therapeutic strategies for triple-negative breast
+                    cancer.
+                  </li>
+                  <li>
+                    Developed mouse models to track B7-H3 activity in renal
+                    cancer, revealing its role in suppressing T cell tumor
+                    attack and advancing immunotherapy strategies.
+                  </li>
+                  <li>
+                    Developed and executed experimental protocols investigating
+                    SUMOylation of Amyloid Precursor Protein (APP) in cellular
+                    models of Alzheimer's disease.
+                  </li>
+                  <li>
+                    Engineered novel microbubble-based contrast agents for
+                    enhanced ultrasound imaging of tumor microenvironments.
+                  </li>
+                  <li>
+                    Managed cell cultures and performed autoclaving, media
+                    preparation, bioluminescence imaging, high-pressure
+                    homogenization, confocal microscopy, FACS, and viability
+                    assays (MTT, CTB).
+                  </li>
+                  <li>
+                    Assisted senior scientists and postdocs, contributed to
+                    seminars and lab meetings, and troubleshot experimental
+                    challenges to improve outcomes.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal-item">
+              <div class="timeline-date">Aug 2022 – Jan 2025</div>
+              <div class="timeline-content">
+                <h3>Graduate Research Assistant</h3>
+                <p class="timeline-org">
+                  <span class="org-badge ub" title="University at Buffalo"
+                    >UB</span
+                  >
+                  STEMMIL · University at Buffalo, NY
+                </p>
+                <ul>
+                  <li>
+                    Maintained and cultured mammalian and stem cells,
+                    incorporating siRNA gene knockdown for qRT-PCR, Western
+                    blot, gel electrophoresis, and immunofluorescence assays.
+                  </li>
+                  <li>
+                    Optimized lab protocols, increasing overall productivity by
+                    70% with minimal available resources.
+                  </li>
+                  <li>
+                    Managed lab orders, inventory, and supplier communication;
+                    trained and supervised a team of 4 graduate researchers.
+                  </li>
+                  <li>
+                    Troubleshot and resolved critical equipment issues;
+                    participated in CGTE Journal Club conferences.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal-item">
+              <div class="timeline-date">May 2024 – Jan 2025</div>
+              <div class="timeline-content">
+                <h3>Graduate Student Assistant</h3>
+                <p class="timeline-org">
+                  <span class="org-badge ub" title="University at Buffalo"
+                    >UB</span
+                  >
+                  Campus Living · University at Buffalo, NY
+                </p>
+                <ul>
+                  <li>
+                    Managed resident inquiries and concerns, enhancing
+                    satisfaction through proactive communication and efficient
+                    problem-solving.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal-item">
+              <div class="timeline-date">2018 – 2019</div>
+              <div class="timeline-content">
+                <h3>Graduate Internships</h3>
+                <p class="timeline-org">
+                  Levim Lifetech · Actavis Pharma · SGS India
+                </p>
+                <ul>
+                  <li>
+                    <strong>Levim Lifetech LLP</strong> — Operated downstream
+                    production processes, including bioreactors, cooling
+                    equipment, HPLC, and autoclave parts.
+                  </li>
+                  <li>
+                    <strong>Actavis Pharma Development Centre</strong> —
+                    Microbiology lab work: media preparation, equipment
+                    calibration, SOP documentation, drug analysis.
+                  </li>
+                  <li>
+                    <strong>SGS India Pvt. Ltd.</strong> — Microbiology lab
+                    training: PPE, Gram staining, bacterial culture,
+                    hemocytometer use.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <h2 class="section-title reveal">
+            <span class="tag tag-purple"
+              ><svg class="icon"><use href="#icon-flask" /></svg>03</span
+            >
+            Research Projects
+          </h2>
+          <div class="rtimeline">
+            <div
+              class="rtimeline-line"
+              id="rtimelineLine"
+              aria-hidden="true"
+            ></div>
+
+            <article class="rtimeline-item">
+              <span class="rtimeline-node ci-cardinal"
+                ><svg class="icon"><use href="#icon-cell" /></svg
+              ></span>
+              <div class="rtimeline-content">
+                <p class="card-date">Stanford School of Medicine — Radiology</p>
+                <h3>Non-Genomic Estrogen Signaling Through ER-α36</h3>
+                <p class="card-sub">
+                  Promotes proliferation and endocrine resistance in TNBC
+                </p>
+                <p>
+                  Investigated the activity and protein interactions of ER-α36
+                  in non-genomic estrogen signaling. Developed and applied a
+                  split-luciferase bioluminescence complementation assay to
+                  measure ligand-binding domain activity and crosstalk with ERα
+                  and ERβ. Complemented imaging data with proliferation assays,
+                  FACS-based live/dead and cell cycle analysis, and western
+                  blotting.
+                </p>
+              </div>
+            </article>
+
+            <article class="rtimeline-item">
+              <span class="rtimeline-node ci-purple"
+                ><svg class="icon"><use href="#icon-dna" /></svg
+              ></span>
+              <div class="rtimeline-content">
+                <p class="card-date">Stanford School of Medicine — Radiology</p>
+                <h3>SUMOylation of Amyloid Precursor Protein</h3>
+                <p class="card-sub">
+                  A steric hindrance strategy to prevent amyloidogenic
+                  processing in Alzheimer's disease
+                </p>
+                <p>
+                  Investigated SUMOylation of APP as a strategy to sterically
+                  hinder secretase access, preventing amyloid-β production —
+                  disrupting the amyloidogenic cascade at its origin and
+                  highlighting a therapeutic avenue for modifying disease
+                  progression at the molecular level.
+                </p>
+              </div>
+            </article>
+
+            <article class="rtimeline-item">
+              <span class="rtimeline-node ci-teal"
+                ><svg class="icon"><use href="#icon-mouse" /></svg
+              ></span>
+              <div class="rtimeline-content">
+                <p class="card-date">Stanford School of Medicine — Radiology</p>
+                <h3>Early Diagnosis of Renal Cell Carcinoma</h3>
+                <p class="card-sub">B7-H3 targeted molecular imaging probes</p>
+                <p>
+                  Established a preclinical model injecting RENCA cells into
+                  mice for in vivo monitoring of B7-H3 expression dynamics.
+                  Characterized B7-H3's immune checkpoint function and
+                  association with T cell–mediated tumor cytotoxicity, advancing
+                  targeted immunotherapies in renal cancer.
+                </p>
+                <p class="card-note">
+                  <svg class="icon"><use href="#icon-award" /></svg> 2nd place,
+                  Canary Center Symposium — "The Science of Seeing Disease
+                  Earlier," Apr 2026
+                </p>
+              </div>
+            </article>
+
+            <article class="rtimeline-item">
+              <span class="rtimeline-node ci-gold"
+                ><svg class="icon"><use href="#icon-molecule" /></svg
+              ></span>
+              <div class="rtimeline-content">
+                <p class="card-date">UB, Dr. Natesh Parashurama's STEMMIL</p>
+                <h3>
+                  Partial Reprogramming of the Liver Gene Regulatory Network
+                </h3>
+                <p class="card-sub">
+                  Targeting HNF4a and FOXA1/2/3 in hepatic cells
+                </p>
+                <p>
+                  Refined the GRN involved in liver cell development using
+                  hPSCs. Used siRNA in HEPG2 cells; assessed results via
+                  qRT-PCR, western blot, immunostaining, and fluorescence
+                  microscopy — improving differentiation, maturity, and yield of
+                  hPSC-derived hepatocytes.
+                </p>
+              </div>
+            </article>
+
+            <article class="rtimeline-item">
+              <span class="rtimeline-node ci-cardinal"
+                ><svg class="icon"><use href="#icon-fish" /></svg
+              ></span>
+              <div class="rtimeline-content">
+                <p class="card-date">Dynamic Megaceutics</p>
+                <h3>Antidiabetic Potential of Ipomoea batatas</h3>
+                <p class="card-sub">Using Danio rerio (zebrafish) models</p>
+                <p>
+                  Tested phytochemical properties of Ipomoea batatas extract on
+                  control and diabetes-induced fish. Formulated a new diet to
+                  evaluate anti-diabetic effects, performed assays, and recorded
+                  morphological changes.
+                </p>
+              </div>
+            </article>
+
+            <article class="rtimeline-item">
+              <span class="rtimeline-node ci-teal"
+                ><svg class="icon"><use href="#icon-beaker" /></svg
+              ></span>
+              <div class="rtimeline-content">
+                <p class="card-date">Geomarine Biotechnologies</p>
+                <h3>Probiotic Supplements for Penaeus vannamei Shrimp</h3>
+                <p class="card-sub">
+                  Yeast-derived beta-glucan and oligomannan supplementation
+                </p>
+                <p>
+                  Cultivated Saccharomyces cerevisiae strains and extracted
+                  beta-glucans and oligomannans for shrimp supplements. Tested
+                  concentrations on PL 20 for morphological changes and
+                  monitored growth.
+                </p>
+              </div>
+            </article>
+
+            <article class="rtimeline-item">
+              <span class="rtimeline-node ci-purple"
+                ><svg class="icon"><use href="#icon-flask" /></svg
+              ></span>
+              <div class="rtimeline-content">
+                <p class="card-date">Avigen Biotech</p>
+                <h3>Natural Plant Drugs for In-Vitro Antidiabetic Activity</h3>
+                <p class="card-sub">Comparative phytochemical evaluation</p>
+                <p>
+                  Conducted quantitative, qualitative, and phytochemical
+                  screening on Alternanthera sessilis and Cinnamomum verum
+                  extracts to evaluate their anti-diabetic activity.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications" class="section alt">
+        <div class="container">
+          <h2 class="section-title reveal">
+            <span class="tag tag-gold"
+              ><svg class="icon"><use href="#icon-book" /></svg>04</span
+            >
+            Publications
+          </h2>
+          <ul class="pub-list reveal-group">
+            <li class="reveal-item">
+              <a
+                class="pub-title"
+                href="https://pubmed.ncbi.nlm.nih.gov/40323894/"
+                target="_blank"
+                rel="noopener"
+                >In Vitro Cultivation Techniques for Modeling Liver
+                Organogenesis, Building Assembloids, and Designing Synthetic
+                Tissues using Human Cell Lines
+                <svg class="icon"><use href="#icon-external" /></svg></a
+              >
+              <span class="pub-authors"
+                >Simran Kumar, Jenna Venturo, Helly Patel,
+                <strong>Lokprakash Aravindan</strong>, Kyle Leatt, Natesh
+                Parashurama</span
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="container">
+          <h2 class="section-title reveal">
+            <span class="tag tag-cardinal"
+              ><svg class="icon"><use href="#icon-molecule" /></svg>05</span
+            >
+            Skills
+          </h2>
+          <div class="skills-grid reveal-group">
+            <div class="skill-group reveal-item" tabindex="0">
+              <h3>
+                <svg class="icon skill-icon ic-cardinal">
+                  <use href="#icon-cell" />
+                </svg>
+                Cell Culture &amp; QC
+              </h3>
+              <p>
+                In-vitro mammalian &amp; stem cell culture (iPSC, hPSC),
+                cryopreservation, cell inventory management, spheroid formation,
+                cell counting, lab biosafety, phytochemical tests.
+              </p>
+            </div>
+            <div class="skill-group reveal-item" tabindex="0">
+              <h3>
+                <svg class="icon skill-icon ic-purple">
+                  <use href="#icon-dna" />
+                </svg>
+                Biochemical &amp; Molecular
+              </h3>
+              <p>
+                qRT-PCR, Western blot, Immunohistochemistry, ELISA,
+                Microfluidics, gel electrophoresis, siRNA knockdown, plasmid
+                transformation, MTT, CTB, FACS, immunostaining, protein/DNA/RNA
+                extraction, cDNA synthesis.
+              </p>
+            </div>
+            <div class="skill-group reveal-item" tabindex="0">
+              <h3>
+                <svg class="icon skill-icon ic-teal">
+                  <use href="#icon-microscope" />
+                </svg>
+                Microscopy &amp; Imaging
+              </h3>
+              <p>
+                In vivo optical imaging, fluorescence &amp; confocal microscopy,
+                fluorescence imaging.
+              </p>
+            </div>
+            <div class="skill-group reveal-item" tabindex="0">
+              <h3>
+                <svg class="icon skill-icon ic-gold">
+                  <use href="#icon-briefcase" />
+                </svg>
+                Lab Management
+              </h3>
+              <p>
+                Ordering supplies, inventory management, biosafety, SOP writing,
+                equipment fixtures.
+              </p>
+            </div>
+            <div class="skill-group reveal-item" tabindex="0">
+              <h3>
+                <svg class="icon skill-icon ic-cardinal">
+                  <use href="#icon-beaker" />
+                </svg>
+                Equipment
+              </h3>
+              <p>
+                Ultrasound, incubators, hemocytometer, pipettes, Incucyte,
+                spectrophotometer, Nanodrop, iBlot, centrifuges, ChemiDoc,
+                thermocycler, fluorescence imager, autoclave, cryotanks, BSL-2,
+                sonicator, high-pressure homogenizer.
+              </p>
+            </div>
+            <div class="skill-group reveal-item" tabindex="0">
+              <h3>
+                <svg class="icon skill-icon ic-teal">
+                  <use href="#icon-mouse" />
+                </svg>
+                In Vivo Techniques
+              </h3>
+              <p>
+                Rodent (rat &amp; mice), fish and shrimp handling — necropsy,
+                dosing, tumor measurement, tissue culture/collection, surgery
+                &amp; anesthesia, in vivo imaging.
+              </p>
+            </div>
+            <div class="skill-group reveal-item" tabindex="0">
+              <h3>
+                <svg class="icon skill-icon ic-purple">
+                  <use href="#icon-monitor" />
+                </svg>
+                Software
+              </h3>
+              <p>
+                FlowJo, GraphPad PRISM, R, MATLAB, macOS, Microsoft Office
+                (Word, Excel, PowerPoint), 70 WPM typing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section alt">
+        <div class="container">
+          <h2 class="section-title reveal">
+            <span class="tag tag-teal"
+              ><svg class="icon"><use href="#icon-graduation" /></svg>06</span
+            >
+            Education
+          </h2>
+          <div class="edu-grid reveal-group">
+            <article class="edu-card reveal-item">
+              <p class="edu-date">Aug 2022 – Jan 2025</p>
+              <h3>M.S., Chemical and Biological Engineering</h3>
+              <p>
+                <span class="org-badge ub" title="University at Buffalo"
+                  >UB</span
+                >
+                University at Buffalo, The State University of New York —
+                Buffalo, NY
+              </p>
+            </article>
+            <article class="edu-card reveal-item">
+              <p class="edu-date">Aug 2018 – Jul 2022</p>
+              <h3>B.Tech, Biotechnology</h3>
+              <p>
+                B. S. Abdur Rahman Institute of Science and Technology — Tamil
+                Nadu, India
+              </p>
+            </article>
+          </div>
+
+          <h3 class="sub-heading">Certifications &amp; Training</h3>
+          <div class="cert-grid reveal-group">
+            <div class="cert-item reveal-item">
+              <span>Rodent Handling</span><small>UB LAF — Nov 2024</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span>Basic Injections</span><small>UB LAF — Nov 2024</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span>Mouse &amp; Rat Advanced Techniques</span
+              ><small>UB LAF — Nov 2024</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span>Rodent Anatomy &amp; Necropsy</span
+              ><small>UB LAF — Nov 2024</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span
+                >CRISPR in Gene Editing, Regulation, ChIP, Live-Cell
+                Imaging</span
+              ><small>Udemy — Jun 2024</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span>Human Stem Cell Oversight</span
+              ><small>CITI — Jul 2024</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span>Good Clinical Practice</span><small>CITI — Jul 2024</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span>Aseptic Surgery — Lab Animal Research</span
+              ><small>CITI — Jul 2024</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span>Antibody Production in Animals</span
+              ><small>CITI — Jul 2024</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span>Working with Mice</span><small>CITI — Jul 2024</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span>Doctorate in Medicine, Acupuncture (M.D. Acu.)</span
+              ><small>Medicina Alternativa Alma Ata — Nov 2018</small>
+            </div>
+            <div class="cert-item reveal-item">
+              <span>Laboratory Bio-safety Training</span
+              ><small>EH&amp;S — Sep 2023</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="container">
+          <h2 class="section-title reveal">
+            <span class="tag tag-purple"
+              ><svg class="icon"><use href="#icon-send" /></svg>07</span
+            >
+            Get in Touch
+          </h2>
+          <p class="lede reveal">
+            Open to conversations about research collaboration, imaging science,
+            and translational oncology. Reach out any time.
+          </p>
+          <div class="contact-grid reveal-group">
+            <a
+              class="contact-item reveal-item"
+              href="mailto:lokpraka@stanford.edu"
+            >
+              <span class="contact-icon ci-cardinal"
+                ><svg class="icon"><use href="#icon-mail" /></svg
+              ></span>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">lokpraka@stanford.edu</span>
+            </a>
+            <div class="contact-item reveal-item">
+              <span class="contact-icon ci-teal"
+                ><svg class="icon"><use href="#icon-pin" /></svg
+              ></span>
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Palo Alto, CA</span>
+            </div>
+            <a
+              class="contact-item reveal-item"
+              href="https://www.linkedin.com/in/lokprakash-aravindan/"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="contact-icon ci-purple"
+                ><svg class="icon"><use href="#icon-external" /></svg
+              ></span>
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">View Profile →</span>
+            </a>
+            <a
+              class="contact-item reveal-item"
+              href="https://orcid.org/0009-0005-4551-0682"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="contact-icon ci-gold"
+                ><svg class="icon"><use href="#icon-external" /></svg
+              ></span>
+              <span class="contact-label">ORCID</span>
+              <span class="contact-value">View Profile →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          <svg class="icon footer-icon"><use href="#icon-atom" /></svg> ©
+          <span id="year"></span> Lokprakash Aravindan. Built and hosted on
+          GitHub Pages.
         </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary magnetic" href="#contact"><svg class="icon"><use href="#icon-send"/></svg> Get in touch</a>
-          <a class="btn btn-outline magnetic" href="assets/Lokprakash_Aravindan_CV.pdf" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-download"/></svg> Download CV</a>
-        </div>
-        <ul class="hero-meta">
-          <li><svg class="icon"><use href="#icon-pin"/></svg> Palo Alto, CA</li>
-          <li><a href="mailto:lokpraka@stanford.edu"><svg class="icon"><use href="#icon-mail"/></svg> lokpraka@stanford.edu</a></li>
-          <li><a href="https://www.linkedin.com/in/lokprakash-aravindan/" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-external"/></svg> LinkedIn</a></li>
-          <li><a href="https://orcid.org/0009-0005-4551-0682" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-external"/></svg> ORCID</a></li>
-        </ul>
       </div>
-      <div class="hero-stats glass">
-        <div class="stat"><span class="counter" data-count="3" data-suffix="+">0</span><small>Years Research</small></div>
-        <div class="stat"><span class="counter" data-count="7" data-suffix="">0</span><small>Research Projects</small></div>
-        <div class="stat"><span class="counter" data-count="30" data-suffix="+">0</span><small>Techniques &amp; Tools</small></div>
-        <div class="stat"><span class="counter" data-count="1" data-suffix="">0</span><small>Publication</small></div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="tag tag-cardinal"><svg class="icon"><use href="#icon-user"/></svg>01</span> About</h2>
-      <p class="lede reveal">
-        Currently a Research Assistant in the Radiology Department at Stanford School of Medicine, with three years
-        of specialized experience in cell culture, in vivo molecular imaging, and advanced biochemical, molecular,
-        and microbiological methodologies. Demonstrated proficiency in designing and executing intricate in vivo and
-        in vitro experimental protocols, alongside quality control management. Recognized for exceptional
-        organizational abilities and attention to detail, with a strong history of refining laboratory procedures
-        and operations to maximize efficiency.
-      </p>
-    </div>
-  </section>
-
-  <section id="experience" class="section alt">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="tag tag-teal"><svg class="icon"><use href="#icon-briefcase"/></svg>02</span> Experience</h2>
-
-      <div class="timeline reveal-group">
-        <article class="timeline-item reveal-item">
-          <div class="timeline-date">Feb 2025 – Present</div>
-          <div class="timeline-content">
-            <h3>Research Assistant</h3>
-            <p class="timeline-org"><span class="org-badge stanford" title="Stanford University">S</span> MIPS Lab · Stanford University, CA</p>
-            <ul>
-              <li>Investigated estrogen receptor activity and interactions to identify therapeutic strategies for triple-negative breast cancer.</li>
-              <li>Developed mouse models to track B7-H3 activity in renal cancer, revealing its role in suppressing T cell tumor attack and advancing immunotherapy strategies.</li>
-              <li>Developed and executed experimental protocols investigating SUMOylation of Amyloid Precursor Protein (APP) in cellular models of Alzheimer's disease.</li>
-              <li>Engineered novel microbubble-based contrast agents for enhanced ultrasound imaging of tumor microenvironments.</li>
-              <li>Managed cell cultures and performed autoclaving, media preparation, bioluminescence imaging, high-pressure homogenization, confocal microscopy, FACS, and viability assays (MTT, CTB).</li>
-              <li>Assisted senior scientists and postdocs, contributed to seminars and lab meetings, and troubleshot experimental challenges to improve outcomes.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal-item">
-          <div class="timeline-date">Aug 2022 – Jan 2025</div>
-          <div class="timeline-content">
-            <h3>Graduate Research Assistant</h3>
-            <p class="timeline-org"><span class="org-badge ub" title="University at Buffalo">UB</span> STEMMIL · University at Buffalo, NY</p>
-            <ul>
-              <li>Maintained and cultured mammalian and stem cells, incorporating siRNA gene knockdown for qRT-PCR, Western blot, gel electrophoresis, and immunofluorescence assays.</li>
-              <li>Optimized lab protocols, increasing overall productivity by 70% with minimal available resources.</li>
-              <li>Managed lab orders, inventory, and supplier communication; trained and supervised a team of 4 graduate researchers.</li>
-              <li>Troubleshot and resolved critical equipment issues; participated in CGTE Journal Club conferences.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal-item">
-          <div class="timeline-date">May 2024 – Jan 2025</div>
-          <div class="timeline-content">
-            <h3>Graduate Student Assistant</h3>
-            <p class="timeline-org"><span class="org-badge ub" title="University at Buffalo">UB</span> Campus Living · University at Buffalo, NY</p>
-            <ul>
-              <li>Managed resident inquiries and concerns, enhancing satisfaction through proactive communication and efficient problem-solving.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal-item">
-          <div class="timeline-date">2018 – 2019</div>
-          <div class="timeline-content">
-            <h3>Graduate Internships</h3>
-            <p class="timeline-org">Levim Lifetech · Actavis Pharma · SGS India</p>
-            <ul>
-              <li><strong>Levim Lifetech LLP</strong> — Operated downstream production processes, including bioreactors, cooling equipment, HPLC, and autoclave parts.</li>
-              <li><strong>Actavis Pharma Development Centre</strong> — Microbiology lab work: media preparation, equipment calibration, SOP documentation, drug analysis.</li>
-              <li><strong>SGS India Pvt. Ltd.</strong> — Microbiology lab training: PPE, Gram staining, bacterial culture, hemocytometer use.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="tag tag-purple"><svg class="icon"><use href="#icon-flask"/></svg>03</span> Research Projects</h2>
-      <div class="rtimeline">
-        <div class="rtimeline-line" id="rtimelineLine" aria-hidden="true"></div>
-
-        <article class="rtimeline-item">
-          <span class="rtimeline-node ci-cardinal"><svg class="icon"><use href="#icon-cell"/></svg></span>
-          <div class="rtimeline-content">
-            <p class="card-date">Stanford School of Medicine — Radiology</p>
-            <h3>Non-Genomic Estrogen Signaling Through ER-α36</h3>
-            <p class="card-sub">Promotes proliferation and endocrine resistance in TNBC</p>
-            <p>Investigated the activity and protein interactions of ER-α36 in non-genomic estrogen signaling.
-            Developed and applied a split-luciferase bioluminescence complementation assay to measure ligand-binding
-            domain activity and crosstalk with ERα and ERβ. Complemented imaging data with proliferation assays,
-            FACS-based live/dead and cell cycle analysis, and western blotting.</p>
-          </div>
-        </article>
-
-        <article class="rtimeline-item">
-          <span class="rtimeline-node ci-purple"><svg class="icon"><use href="#icon-dna"/></svg></span>
-          <div class="rtimeline-content">
-            <p class="card-date">Stanford School of Medicine — Radiology</p>
-            <h3>SUMOylation of Amyloid Precursor Protein</h3>
-            <p class="card-sub">A steric hindrance strategy to prevent amyloidogenic processing in Alzheimer's disease</p>
-            <p>Investigated SUMOylation of APP as a strategy to sterically hinder secretase access, preventing amyloid-β
-            production — disrupting the amyloidogenic cascade at its origin and highlighting a therapeutic avenue for
-            modifying disease progression at the molecular level.</p>
-          </div>
-        </article>
-
-        <article class="rtimeline-item">
-          <span class="rtimeline-node ci-teal"><svg class="icon"><use href="#icon-mouse"/></svg></span>
-          <div class="rtimeline-content">
-            <p class="card-date">Stanford School of Medicine — Radiology</p>
-            <h3>Early Diagnosis of Renal Cell Carcinoma</h3>
-            <p class="card-sub">B7-H3 targeted molecular imaging probes</p>
-            <p>Established a preclinical model injecting RENCA cells into mice for in vivo monitoring of B7-H3
-            expression dynamics. Characterized B7-H3's immune checkpoint function and association with T
-            cell–mediated tumor cytotoxicity, advancing targeted immunotherapies in renal cancer.</p>
-            <p class="card-note"><svg class="icon"><use href="#icon-award"/></svg> 2nd place, Canary Center Symposium — "The Science of Seeing Disease Earlier," Apr 2026</p>
-          </div>
-        </article>
-
-        <article class="rtimeline-item">
-          <span class="rtimeline-node ci-gold"><svg class="icon"><use href="#icon-molecule"/></svg></span>
-          <div class="rtimeline-content">
-            <p class="card-date">Aug 2022 – Jan 2025 · UB, Dr. Natesh Parashurama's STEMMIL</p>
-            <h3>Partial Reprogramming of the Liver Gene Regulatory Network</h3>
-            <p class="card-sub">Targeting HNF4a and FOXA1/2/3 in hepatic cells</p>
-            <p>Refined the GRN involved in liver cell development using hPSCs. Used siRNA in HEPG2 cells; assessed
-            results via qRT-PCR, western blot, immunostaining, and fluorescence microscopy — improving differentiation,
-            maturity, and yield of hPSC-derived hepatocytes.</p>
-          </div>
-        </article>
-
-        <article class="rtimeline-item">
-          <span class="rtimeline-node ci-cardinal"><svg class="icon"><use href="#icon-fish"/></svg></span>
-          <div class="rtimeline-content">
-            <p class="card-date">Dec 2021 – May 2022 · Dynamic Megaceutics</p>
-            <h3>Antidiabetic Potential of Ipomoea batatas</h3>
-            <p class="card-sub">Using Danio rerio (zebrafish) models</p>
-            <p>Tested phytochemical properties of Ipomoea batatas extract on control and diabetes-induced fish.
-            Formulated a new diet to evaluate anti-diabetic effects, performed assays, and recorded morphological changes.</p>
-          </div>
-        </article>
-
-        <article class="rtimeline-item">
-          <span class="rtimeline-node ci-teal"><svg class="icon"><use href="#icon-beaker"/></svg></span>
-          <div class="rtimeline-content">
-            <p class="card-date">Aug 2021 – Oct 2021 · Geomarine Biotechnologies</p>
-            <h3>Probiotic Supplements for Penaeus vannamei Shrimp</h3>
-            <p class="card-sub">Yeast-derived beta-glucan and oligomannan supplementation</p>
-            <p>Cultivated Saccharomyces cerevisiae strains and extracted beta-glucans and oligomannans for shrimp
-            supplements. Tested concentrations on PL 20 for morphological changes and monitored growth.</p>
-          </div>
-        </article>
-
-        <article class="rtimeline-item">
-          <span class="rtimeline-node ci-purple"><svg class="icon"><use href="#icon-flask"/></svg></span>
-          <div class="rtimeline-content">
-            <p class="card-date">Jul 2021 – Sep 2021 · Avigen Biotech</p>
-            <h3>Natural Plant Drugs for In-Vitro Antidiabetic Activity</h3>
-            <p class="card-sub">Comparative phytochemical evaluation</p>
-            <p>Conducted quantitative, qualitative, and phytochemical screening on Alternanthera sessilis and
-            Cinnamomum verum extracts to evaluate their anti-diabetic activity.</p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="publications" class="section alt">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="tag tag-gold"><svg class="icon"><use href="#icon-book"/></svg>04</span> Publications</h2>
-      <ul class="pub-list reveal-group">
-        <li class="reveal-item">
-          <span class="pub-title">In Vitro Cultivation Techniques for Modeling Liver Organogenesis, Building Assembloids, and Designing Synthetic Tissues using Human Cell Lines</span>
-          <span class="pub-authors">Simran Kumar, Jenna Venturo, Helly Patel, <strong>Lokprakash Aravindan</strong>, Kyle Leatt, Natesh Parashurama</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="skills" class="section">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="tag tag-cardinal"><svg class="icon"><use href="#icon-molecule"/></svg>05</span> Skills</h2>
-      <div class="skills-grid reveal-group">
-        <div class="skill-group reveal-item">
-          <h3><svg class="icon skill-icon ic-cardinal"><use href="#icon-cell"/></svg> Cell Culture &amp; QC</h3>
-          <p>In-vitro mammalian &amp; stem cell culture (iPSC, hPSC), cryopreservation, cell inventory management, spheroid formation, cell counting, lab biosafety, phytochemical tests.</p>
-        </div>
-        <div class="skill-group reveal-item">
-          <h3><svg class="icon skill-icon ic-purple"><use href="#icon-dna"/></svg> Biochemical &amp; Molecular</h3>
-          <p>qRT-PCR, Western blot, Immunohistochemistry, ELISA, Microfluidics, gel electrophoresis, siRNA knockdown, plasmid transformation, MTT, CTB, FACS, immunostaining, protein/DNA/RNA extraction, cDNA synthesis.</p>
-        </div>
-        <div class="skill-group reveal-item">
-          <h3><svg class="icon skill-icon ic-teal"><use href="#icon-microscope"/></svg> Microscopy &amp; Imaging</h3>
-          <p>In vivo optical imaging, fluorescence &amp; confocal microscopy, fluorescence imaging.</p>
-        </div>
-        <div class="skill-group reveal-item">
-          <h3><svg class="icon skill-icon ic-gold"><use href="#icon-briefcase"/></svg> Lab Management</h3>
-          <p>Ordering supplies, inventory management, biosafety, SOP writing, equipment fixtures.</p>
-        </div>
-        <div class="skill-group reveal-item">
-          <h3><svg class="icon skill-icon ic-cardinal"><use href="#icon-beaker"/></svg> Equipment</h3>
-          <p>Ultrasound, incubators, hemocytometer, pipettes, Incucyte, spectrophotometer, Nanodrop, iBlot, centrifuges, ChemiDoc, thermocycler, fluorescence imager, autoclave, cryotanks, BSL-2, sonicator, high-pressure homogenizer.</p>
-        </div>
-        <div class="skill-group reveal-item">
-          <h3><svg class="icon skill-icon ic-teal"><use href="#icon-mouse"/></svg> In Vivo Techniques</h3>
-          <p>Rodent (rat &amp; mice), fish and shrimp handling — necropsy, dosing, tumor measurement, tissue culture/collection, surgery &amp; anesthesia, in vivo imaging.</p>
-        </div>
-        <div class="skill-group reveal-item">
-          <h3><svg class="icon skill-icon ic-purple"><use href="#icon-monitor"/></svg> Software</h3>
-          <p>FlowJo, GraphPad PRISM, R, MATLAB, macOS, Microsoft Office (Word, Excel, PowerPoint), 70 WPM typing.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="education" class="section alt">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="tag tag-teal"><svg class="icon"><use href="#icon-graduation"/></svg>06</span> Education</h2>
-      <div class="edu-grid reveal-group">
-        <article class="edu-card reveal-item">
-          <p class="edu-date">Aug 2022 – Jan 2025</p>
-          <h3>M.S., Chemical and Biological Engineering</h3>
-          <p><span class="org-badge ub" title="University at Buffalo">UB</span> University at Buffalo, The State University of New York — Buffalo, NY</p>
-        </article>
-        <article class="edu-card reveal-item">
-          <p class="edu-date">Aug 2018 – Jul 2022</p>
-          <h3>B.Tech, Biotechnology</h3>
-          <p>B. S. Abdur Rahman Institute of Science and Technology — Tamil Nadu, India</p>
-        </article>
-      </div>
-
-      <h3 class="sub-heading">Certifications &amp; Training</h3>
-      <div class="cert-grid reveal-group">
-        <div class="cert-item reveal-item"><span>Rodent Handling</span><small>UB LAF — Nov 2024</small></div>
-        <div class="cert-item reveal-item"><span>Basic Injections</span><small>UB LAF — Nov 2024</small></div>
-        <div class="cert-item reveal-item"><span>Mouse &amp; Rat Advanced Techniques</span><small>UB LAF — Nov 2024</small></div>
-        <div class="cert-item reveal-item"><span>Rodent Anatomy &amp; Necropsy</span><small>UB LAF — Nov 2024</small></div>
-        <div class="cert-item reveal-item"><span>CRISPR in Gene Editing, Regulation, ChIP, Live-Cell Imaging</span><small>Udemy — Jun 2024</small></div>
-        <div class="cert-item reveal-item"><span>Human Stem Cell Oversight</span><small>CITI — Jul 2024</small></div>
-        <div class="cert-item reveal-item"><span>Good Clinical Practice</span><small>CITI — Jul 2024</small></div>
-        <div class="cert-item reveal-item"><span>Aseptic Surgery — Lab Animal Research</span><small>CITI — Jul 2024</small></div>
-        <div class="cert-item reveal-item"><span>Antibody Production in Animals</span><small>CITI — Jul 2024</small></div>
-        <div class="cert-item reveal-item"><span>Working with Mice</span><small>CITI — Jul 2024</small></div>
-        <div class="cert-item reveal-item"><span>Doctorate in Medicine, Acupuncture (M.D. Acu.)</span><small>Medicina Alternativa Alma Ata — Nov 2018</small></div>
-        <div class="cert-item reveal-item"><span>Laboratory Bio-safety Training</span><small>EH&amp;S — Sep 2023</small></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section contact-section">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="tag tag-purple"><svg class="icon"><use href="#icon-send"/></svg>07</span> Get in Touch</h2>
-      <p class="lede reveal">
-        Open to conversations about research collaboration, imaging science, and translational oncology.
-        Reach out any time.
-      </p>
-      <div class="contact-grid reveal-group">
-        <a class="contact-item reveal-item" href="mailto:lokpraka@stanford.edu">
-          <span class="contact-icon ci-cardinal"><svg class="icon"><use href="#icon-mail"/></svg></span>
-          <span class="contact-label">Email</span>
-          <span class="contact-value">lokpraka@stanford.edu</span>
-        </a>
-        <div class="contact-item reveal-item">
-          <span class="contact-icon ci-teal"><svg class="icon"><use href="#icon-pin"/></svg></span>
-          <span class="contact-label">Location</span>
-          <span class="contact-value">Palo Alto, CA</span>
-        </div>
-        <a class="contact-item reveal-item" href="https://www.linkedin.com/in/lokprakash-aravindan/" target="_blank" rel="noopener">
-          <span class="contact-icon ci-purple"><svg class="icon"><use href="#icon-external"/></svg></span>
-          <span class="contact-label">LinkedIn</span>
-          <span class="contact-value">View Profile →</span>
-        </a>
-        <a class="contact-item reveal-item" href="https://orcid.org/0009-0005-4551-0682" target="_blank" rel="noopener">
-          <span class="contact-icon ci-gold"><svg class="icon"><use href="#icon-external"/></svg></span>
-          <span class="contact-label">ORCID</span>
-          <span class="contact-value">View Profile →</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p><svg class="icon footer-icon"><use href="#icon-atom"/></svg> © <span id="year"></span> Lokprakash Aravindan. Built and hosted on GitHub Pages.</p>
-  </div>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-<script src="assets/js/script.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
